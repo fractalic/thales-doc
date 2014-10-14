@@ -1,17 +1,27 @@
 This project is sponsored by the UBC Sailbot team, with the goal of overcoming a significant challenge to autonomous robotic vessels on open water: floating hazards. Debris in the water is difficult to detect, and attempts made to cross the Atlantic ocean with such an autonomous boat have often been sunk by aquatic hazards.
 
-KEY ISSUES
+\subsection{\label{sec:intro:key-issues}Key Issues}
+The greatest challenge is to reliably produce an accurate model of the boat's surroundings. The first challenge is to test the system with limited ability to test on the water.. Finally, the solution must be able to examine its surrounding under varied light conditions, and with minimal processing power.
 
-EXISTING SOLUTIONS
+A robotic vision system requires extensive calibration and offline analysis of the signals it produces. Since testing on the water requires considerable time, it is infeasible to adequately examine the capabilities of the vision system without an on-shore testing environment that closely matches conditions. Such an environment should be able to simulate bright and dark lighting conditions, sections of view that are blocked by other equipment, fog and rain, as well as the motion of the boat.
+
+Also, the processing power of the vision system is physically constrained by the capabilities of Raspberry Pi (or similar) hardware, and further constrained by the need to minimize the energy use of the hardware while examining the environment in realtime. To accomplish this, information provided by sensors may need to be cleverly downsampled, and processing algorithms should be selected based on performance while potentially compromising accuracy for speed.
+
+\subsection{\label{sec:intro:existing-solutions}Existing Solutions}
 
 \subsection{\label{sec:intro:technical-background}Technical Background}
+
 \subsection{\label{sec:intro:commercial}State of the Art}
+I'd say this system for the low price of \$8000 is the commercial competition.\\
+http://www.wired.com/2014/09/velodyne-lidar-self-driving-cars/\\
+
 \subsection{\label{sec:intro:alternatives}Alternative Strategies}
+possibly: ultrasound, infrared
 
 \begin{figure}
 % uncomment the following line, set nat(width|height) to the actual size of the image
 % and then set width to the desired width on the page
-
+% make sure the image path uses this format and that the asset is stored in the image folder
 \includegraphics[width=100mm,natwidth=640,natheight=480]{"./image/Example"}
 \caption{\label{fig:software_overall}Example Figure}
 \end{figure}
