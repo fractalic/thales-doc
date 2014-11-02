@@ -32,17 +32,25 @@ Processing intensive, only provides 2D images, lens must remain clean.  Difficul
 \item Radar:
 Long range, high-quality preexisting units available
 
-May be unable to detect nearby objects.  Size and power consumption concerns
+May be unable to detect nearby objects.  Size, price and power consumption concerns
 
 \item Sonar:
 Relatively long range, reliable detection
 
-Housing may be difficult, may be more difficult to integrate into existing boat
+Difficult to detect shallow objects and nets. Housing may be difficult, may be more difficult to integrate into existing boat
 
 \item Passive acoustic:
 Possible supplement to other systems - detect ships.  Low cost, very low power - emergency backup detection?
 
 Can't detect many obstacles.  Doesn't provide directional information.
+
+\item Radio reciever:
+Bouys at the end of fishing nets are often marked with radio transponders. Easy to find basic directional information and avoid the area.
+
+\item Synthetic Apeture Radar
+Satellite based mapping available in realtime to ocean researchers. Can be used to identify wave patterns, eddies and convergent currents to find areas where small ocean debris is likely to accumulate \cite{SAR-manual}.
+
+Scans have an proportional relationship between temporal lag and resolution, so it may be tricky to find satellites data that scans the appropriate areas with a high enough resolution and low enough time lag to still be useful \cite{Mace}.
 \end{itemize}
 
 
@@ -50,6 +58,7 @@ Can't detect many obstacles.  Doesn't provide directional information.
 Our budget is initially limited to \$1500, with more funding potentially available for promising solutions. This ceiling rules out most commercial products, however it is useful to examine their features for comparison against our requirements.
 
 The Autonomous Maritime Navigation Project uses a combination of radar, lidar, and optical cameras for autonomous small-boat navigation.
+
 
 \subsubsection{\label{sec:intro:commercial:lidar}Lidar Systems}
 A high-performance LIDAR system developed by Velodyne (the Velodyne Lidar Puck VLP-16 \cite{velodyne-vlp16}) selling at a minimum cost of \$8000 is the standard of 3-dimensional autonomous vision. This system offers a viewing area of 360$\degree$ horizontal, 30$\degree$ vertical, with 300 000 measurement points delivered every second, effectively forming a 3D point mesh within the viewport. Velodyne's more expensive and more capable products are used by Google's autonomous vehicles.
@@ -62,5 +71,6 @@ Industry standard marine radar systems such as those made by Raymarine typically
 
 Typical radomes weigh 1.5 to 6 kilograms, and consume ten to 45 Watts at full output power. Such a system provides horizontal and vertical viewing regions of approximately 70$\degree$.
 
+
 \subsection{\label{sec:intro:alternatives}Alternative Strategies}
-We will likely use some combination of the systems discussed under Technical Background.  Which systems we use will depend on the sponsor's needs and the technical problems we face.
+We are not aware of any additional alternative strategies at this time. Any solution will likely be some combination of those presented in the Technical Information section.
