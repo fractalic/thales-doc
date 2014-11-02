@@ -34,4 +34,11 @@ Software code not depending on hardware interaction is examined through unit tes
 
 The emergent, holistic functionality of the software (including user interface elements are outputs) can be tested using functional tests that provide simulated realistic input, possibly simulating hardware components, and examine the output.
 
-The final test level is user tests, which 
+The final test level is user tests, which include testing on the actual vessel in real and simulated environments, as well as any other manual testing.
+
+These test levels are not performed in sequence; all testing levels should interact with the development process, and be re-evaluated whenever a notable change is made.
+
+\begin{figure}
+\includegraphics[width=100mm,natwidth=494,natheight=299]{"./image/software-testing"}
+\caption[Software development cycle]{\label{fig:software-testing}Development cycle. Tests are written before or simultaneously with production code, and both automated and manual testing is run intermittently during development.}
+\end{figure}
