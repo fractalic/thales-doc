@@ -1,5 +1,6 @@
 This project is sponsored by the UBC Sailbot team, with the goal of overcoming a significant challenge to autonomous robotic vessels on open water: floating hazards. Debris in the water is difficult to detect, and attempts made to cross the Atlantic ocean with such an autonomous boat have often been sunk by aquatic hazards.
 
+
 \subsection{\label{sec:intro:key-issues}Key Issues}
 The greatest challenge is to reliably produce an accurate model of the boat's surroundings. The first challenge is to test the system with limited ability to test on the water.  Waves will be particularly difficult to test with.  Finally, the solution must be able to examine its surrounding under varied light conditions, and with minimal processing power.
 
@@ -7,9 +8,12 @@ A robotic vision system requires extensive calibration and offline analysis of t
 
 Also, the processing power of the vision system is physically constrained by the capabilities of Raspberry Pi (or similar) hardware, and further constrained by the need to minimize the energy use of the hardware while examining the environment in realtime. To accomplish this, information provided by sensors may need to be cleverly downsampled, and processing algorithms should be selected based on performance while potentially compromising accuracy for speed.
 
-\subsection{\label{sec:intro:existing-solutions}Existing Solutions}
 
-The Sailbot team has an existing IR navigation system - we need to assess its strengths and weaknesses when we meet with them, and determine the areas where improvements are needed.  We expect to need another system to either replace or supplement IR detection.  Environmental conditions such as fog, rain, and waves may make IR detection unreliable, and its range may be limited compared to other systems.  More detail will become available as we discuss this with our project sponsor.
+\subsection{\label{sec:intro:existing-solutions}Existing Solutions}
+The Sailbot team has access to an IR camera, which they got with the intention of using IR navigation. The IR camera will be tested during the week of November 2, 2014 however it is expected to be able to be able to distinguish small boats in relatively calm water with ease. Small boat detection via IR detection has been previously developed for port traffic applications by the Vision Lab of Old Dominion University in Virginia \cite{ODU-boat-IR-detection}.
+
+No other teams that have attempted the TransAt challenge have incorporated any obstacle detection systems; many had other, more fundamental physical weaknesses that prevented them from finishing the competition (such as flooding and failure of the electronics compartments, loss of navigation or steering ability, and broken masts) while only a few have been long enough at sea to fail at the hands of nets or other floating obstacles \cite{transat-history}.
+
 
 \subsection{\label{sec:intro:technical-background}Technical Background}
 Potential detection systems:
@@ -41,6 +45,7 @@ Possible supplement to other systems - detect ships.  Low cost, very low power -
 Can't detect many obstacles.  Doesn't provide directional information.
 \end{itemize}
 
+
 \subsection{\label{sec:intro:commercial}State of the Art - Commercial Systems}
 Our budget is initially limited to \$1500, with more funding potentially available for promising solutions. This ceiling rules out most commercial products, however it is useful to examine their features for comparison against our requirements.
 
@@ -50,6 +55,7 @@ The Autonomous Maritime Navigation Project uses a combination of radar, lidar, a
 A high-performance LIDAR system developed by Velodyne (the Velodyne Lidar Puck VLP-16 \cite{velodyne-vlp16}) selling at a minimum cost of \$8000 is the standard of 3-dimensional autonomous vision. This system offers a viewing area of 360$\degree$ horizontal, 30$\degree$ vertical, with 300 000 measurement points delivered every second, effectively forming a 3D point mesh within the viewport. Velodyne's more expensive and more capable products are used by Google's autonomous vehicles.
 
 Velodyne's least expensive offering is very light, at 600 grams, with dimensions $\varnothing$100mm by 65mm tall, and maximum power draw of ten Watts.
+
 
 \subsubsection{\label{sec:intro:commercial:radar}Radar Systems}
 Industry standard marine radar systems such as those made by Raymarine typically cost upwards of \$2000, which is slightly larger than our budget. Raymarine makes radome and open array models, where the open array design includes an exposed rotating emitter bar. The radome, such as the Raymarine E-Series \cite{raymarine-eseries}, is better suited to small boats, and it has a shorter range more closely matched to our use case. However, such systems are typically optimized for long range detection, with the minimum distance to a detectable object being tens to several hundred metres (assuming the unit is mounted in a plane parallel to the boat deck).
