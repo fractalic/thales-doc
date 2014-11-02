@@ -3,14 +3,14 @@ There are numerous potential methods of detecting floating and undersea obstacle
 
 
 \subsection{\label{sec:method:proposed-design}Proposed Design}
-It seems likely that a radar/lidar combination will be our primary detection method.  This will be reassessed after meeting with our sponsor.
+The design that will be most likely to see all obstacles at approriate distances will rely on AIS for large boats, IR for small boats, radio reciever for nets and SAR for passive small obstacle detection. Two of these, AIS and SAR, are easily implemented solutions that rely solely on external data (no on-board sensors) and coding for positioning. The radio reciever simply needs to indentify the direction of a radio source to find a net marker, and avoiding that area should keep the boat away from any nets. The IR detection will be the most trickyof the individual systems to test and implement, and the true challenge will be integrating all four systems to appropriately manage data from each source.
 
 
 \begin{itemize}
-\item LIDAR system, where laser rangefinders are used to create a 3d map of the surrounding space
-\item IR beacon and detector, providing a 2D image
-\item Ultrasound. 3D image
-\item Other things?
+\item AIS, an internationally managed system for large boats to communicate positions, headings and speeds
+\item IR beacon and detector, providing a 2D image for small boat detection
+\item Radio reciever, to find radio transponders placed on net markers
+\item SAR, realtime satellite-based radio imaging to find convergent currents and eddies where floating debris is likely to accumulate
 \end{itemize}
 
 
