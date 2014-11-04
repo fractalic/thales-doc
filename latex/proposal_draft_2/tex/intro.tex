@@ -1,4 +1,4 @@
-This project is sponsored by the UBC Sailbot team, with the goal of overcoming a significant challenge to autonomous robotic vessels on open water: floating hazards. Debris in the water is difficult to detect, and attempts made to cross the Atlantic ocean with such an autonomous boat have often been sunk by aquatic hazards. Previous attempts at the TransAt challenge have failed mostly through processes other than collision, but the few that have sunk due to collisions have primarily been caught in fishing nets \cite{transat-history}. Anecdotal evidence gathered from fishermen and a sailor who crossed the Atlantic seven times in an educational schooner tells us that the vast majority of all obstacles the Sailbot may encounter at sea will be found withing a few day's sailing of shore; this is confirmed by the TransAt history, which shows all boats failing long before crossing into international waters.
+This project is sponsored by the UBC Sailbot team, with the goal of overcoming a significant challenge to autonomous robotic vessels on open water: floating hazards. Debris in the water is difficult to detect, and attempts made to cross the Atlantic ocean with such an autonomous boat have often been sunk by aquatic hazards. Previous attempts at the Microtransat challenge have failed mostly through processes other than collision, but the few that have sunk due to collisions have primarily been caught in fishing nets \cite{transat-history}. Anecdotal evidence gathered from fishermen and a sailor who crossed the Atlantic seven times in an educational schooner tells us that the vast majority of all obstacles the Sailbot may encounter at sea will be found withing a few day's sailing of shore; this is confirmed by the Microtransat history, which shows all boats failing long before crossing into international waters.
 
 
 \subsection{\label{sec:intro:key-issues}Key Issues}
@@ -12,7 +12,7 @@ Also, the processing power of the vision system is physically constrained by the
 \subsection{\label{sec:intro:existing-solutions}Existing Solutions}
 The Sailbot team has access to an IR camera, which they got with the intention of using IR navigation. The IR camera will be tested during the week of November 2, 2014 however it is expected to be able to be able to distinguish small boats in relatively calm water with ease. Small boat detection via IR detection has been previously developed for port traffic applications by the Vision Lab of Old Dominion University in Virginia \cite{ODU-boat-IR-detection}.
 
-No other teams that have attempted the TransAt challenge have incorporated any obstacle detection systems; many had other, more fundamental physical weaknesses that prevented them from finishing the competition (such as flooding and failure of the electronics compartments, loss of navigation or steering ability, and broken masts) while only a few have been long enough at sea to fail at the hands of nets or other floating obstacles \cite{transat-history}.
+No other teams that have attempted the Microtransat challenge have incorporated any obstacle detection systems; many had other, more fundamental physical weaknesses that prevented them from finishing the competition (such as flooding and failure of the electronics compartments, loss of navigation or steering ability, and broken masts) while only a few have been long enough at sea to fail at the hands of nets or other floating obstacles \cite{transat-history}.
 
 
 \subsection{\label{sec:intro:technical-background}Technical Background}
@@ -45,10 +45,10 @@ Possible supplement to other systems - detect ships.  Low cost, very low power -
 Can't detect many obstacles.  Doesn't provide directional information.
 
 \item Radio reciever:
-Bouys at the end of fishing nets are often marked with radio transponders. Easy to find basic directional information and avoid the area.
+Buoys at the end of fishing nets are often marked with radio transponders. Easy to find basic directional information and avoid the area.
 
 \item Synthetic Aperture Radar
-Satellite based mapping available in realtime to ocean researchers. Can be used to identify wave patterns, eddies and convergent currents to find areas where small ocean debris is likely to accumulate \cite{SAR-manual}.
+Satellite based mapping available in real-time to ocean researchers. Can be used to identify wave patterns, eddies and convergent currents to find areas where small ocean debris is likely to accumulate \cite{SAR-manual}.
 
 Scans have an proportional relationship between temporal lag and resolution, so it may be tricky to find satellites data that scans the appropriate areas with a high enough resolution and low enough time lag to still be useful \cite{Mace}.
 \end{itemize}
