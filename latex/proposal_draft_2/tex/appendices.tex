@@ -11,4 +11,20 @@ Constraints on the viewing area appear with any method of detection, whether rad
 \caption[Minimum distance to detected obstacle.]{\label{fig:emitter-angle}Minimum detection distance for a directional emitter.}
 \end{figure}
 
-\subsection{\label{app:AppendixB}Software Testing Methodology}
+\subsection{\label{app:software-testing-methodology}Software Testing Methodology}
+This appendix outlines a particular form of test driven development, inspired by Peter Provost \cite{provost-tdd} and James O. Coplien \cite{coplien-tdd-waste}.
+
+The correct functioning of software is checked at every stage of development, using three levels, two of which are automated. The three levels are unit tests and functional tests, performed by testing software; and user tests, performed manually.
+
+Software code not depending on hardware interaction is examined through unit tests, which verify that functions produce the correct output under all anticipated conditions. These tests are written before or simultaneously with the code to be tested.
+
+The emergent, holistic functionality of the software (including user interface elements are outputs) can be tested using functional tests that provide simulated realistic input, possibly simulating hardware components, and examine the output.
+
+The final test level is user tests, which include testing on the actual vessel in real and simulated environments, as well as any other manual testing.
+
+These test levels are not performed in sequence; all testing levels should interact with the development process, and be re-evaluated whenever a notable change is made. Figure \ref{fig:software-testing} shows the connection of testing and development.
+
+\begin{figure}
+\includegraphics[width=100mm,natwidth=494,natheight=299]{"./image/software-testing"}
+\caption[Software development cycle]{\label{fig:software-testing}Development cycle. Tests are written before or simultaneously with production code, and both automated and manual testing is run intermittently during development.}
+\end{figure}

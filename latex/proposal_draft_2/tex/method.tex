@@ -37,20 +37,7 @@ The Sailbot has ample room in the hull of the boat for fairly large systems. the
 \subsection{\label{sec:method:proposed-verification-procedure}Proposed Verification Procedure}
 
 \subsubsection{\label{sec:method:proposed-verification-procedure:software}Software}
-The correct functioning of software is checked at every stage of development, using three levels, two of which are automated.
-
-Software code not depending on hardware interaction is examined through unit tests, which verify that functions produce the correct output under all anticipated conditions. These tests are written before or simultaneously with the code to be tested.
-
-The emergent, holistic functionality of the software (including user interface elements are outputs) can be tested using functional tests that provide simulated realistic input, possibly simulating hardware components, and examine the output.
-
-The final test level is user tests, which include testing on the actual vessel in real and simulated environments, as well as any other manual testing.
-
-These test levels are not performed in sequence; all testing levels should interact with the development process, and be re-evaluated whenever a notable change is made. Figure \ref{fig:software-testing} shows the connection of testing and development.
-
-\begin{figure}
-\includegraphics[width=100mm,natwidth=494,natheight=299]{"./image/software-testing"}
-\caption[Software development cycle]{\label{fig:software-testing}Development cycle. Tests are written before or simultaneously with production code, and both automated and manual testing is run intermittently during development.}
-\end{figure}
+For more information on software testing methodology, refer to Appendix \ref{app:software-testing-methodology}.
 
 \subsubsection{\label{sec:method:proposed-verification-procedure:hardware}Hardware}
 Hardware systems should be tested in isolation to verify that they produce the correct output for various inputs. Then the systems can be couple together, and software control added. The hardware is then tested as part of the software "user tests".
