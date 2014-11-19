@@ -2,6 +2,7 @@
 \setlength{\textheight}{9.5in}
 
 \usepackage{graphicx, amsmath, gensymb}
+\usepackage[toc,page]{appendix}
 
 % Usual (decimal) section numbering
 \renewcommand{\thesection}{\arabic{section}.\arabic{subsection}}
@@ -100,7 +101,8 @@
 \section{\label{sec:appendices}Appendices}
 \input{"./tex/appendices.tex"}
 
-\section{\label{sec:references}References}
+% Remove section when using automatic section provided by appendix environment
+%\section*{\label{sec:references}References}
 \input{"./tex/references.tex"}
 
 \end{document}

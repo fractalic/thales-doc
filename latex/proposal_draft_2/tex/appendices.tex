@@ -1,8 +1,14 @@
-\subsection*{Appendix A:\\Detection principles} \label{app:AppendixA}
-% the \\ insures the section title is centered below the phrase: AppendixA
-\subsubsection*{\label{sec:app:min-distance}Minimum detection distance}
+\appendix
+% Show appendix character in front of subsection number.
+\renewcommand{\thesubsection}{\Alph{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+\subsection{\label{app:AppendixA}Detection principles} 
+
+\subsubsection{\label{app:minimum-detection-distance}Minimum detection distance}
 Constraints on the viewing area appear with any method of detection, whether radar, lidar, on infrared. For directional emitters, the minimum detection range is given by trigonometry and depends only on the vertical beam width and the mounting angle of the device. $d = h/\text{tan}(\eta)$, where $\eta=\pi/2-(\theta/2+\phi)$ given by $\theta$, the vertical beam spread, and $\phi$, the emitter mount angle. Figure \ref{fig:emitter-angle} details the trigonometric analysis.
 \begin{figure}
 \includegraphics[width=70mm,natwidth=505,natheight=394]{"./image/directional-emitters"}
 \caption[Minimum distance to detected obstacle.]{\label{fig:emitter-angle}Minimum detection distance for a directional emitter.}
 \end{figure}
+
+\subsection{\label{app:AppendixB}Software Testing Methodology}
