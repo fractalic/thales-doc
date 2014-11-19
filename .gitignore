@@ -1,4 +1,4 @@
-# ignore compiled stuff from latex
+# Ignore compiled stuff from latex
 *.aux
 *.bbl
 *.blg
@@ -10,5 +10,8 @@
 *.toc
 *.bib
 
-# windows ignores
+# Ignore crash info from Sublime Text
+*.dmp
+
+# Ignore Windows files
 *.db
