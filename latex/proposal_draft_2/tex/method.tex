@@ -1,23 +1,53 @@
 \subsection{\label{sec:method:theory}Theory}
+There are numerous potential methods of detecting floating and undersea obstacles. Though these have rarely been applied to autonomous detection of objects, the functionality and expected usability of each system is discussed below. Also, general detection principles applicable to many detection schemes are discussed.
+
 
 \subsection{\label{sec:method:proposed-design}Proposed Design}
-It seems likely that a radar/lidar combination will be our primary detection method.  This will be reassessed after meeting with our sponsor.
+The design that will be most likely to see all obstacles at appropriate distances will rely on AIS for large boats, IR for small boats, radio reciever for nets and SAR for passive small obstacle detection. Two of these, AIS and SAR, are easily implemented solutions that rely solely on external data (no on-board sensors) and coding for positioning. The radio receiver simply needs to identify the direction of a radio source to find a net marker, and avoiding that area should keep the boat away from any nets. The IR detection will be the most difficult of the individual systems to test and implement, and the true challenge will be integrating all four systems to appropriately manage data from each source.
+
 
 \begin{itemize}
-\item LIDAR system, where laser rangefinders are used to create a 3d map of the surrounding space
-\item IR beacon and detector, providing a 2D image
-\item Ultrasound. 3D image
-\item Other things?
+\item AIS, an internationally managed system for large boats to communicate positions, headings and speeds
+\item IR beacon and detector, providing a 2D image for small boat detection
+\item Radio receiver, to find radio transponders placed on net markers
+\item SAR, real-time satellite-based radio imaging to find convergent currents and eddies where floating debris is likely to accumulate
 \end{itemize}
+
+
 
 \subsection{\label{sec:method:proposed-analysis}Proposed Analysis}
 It is important to verify the correct functioning both of the hardware sensors and computation platform, and of the software analysis system. Beyond functionality, further examination will determine the limits of the capabilities of the device.
+
+The Sailbot team has previously competed with small sailboats. They have a small sailboat (approximately 3 feet long) that's completely built and thoroughly tested. We have full access to this boat and freedom to modify it to mount various detection systems in order to perform scale testing on it. This small boat will serve as a robust testing mechanism to try different orientations and combinations of systems.
+
 \subsubsection{\label{sec:method:proposed-analysis:software}Software}
-Software can be examined at a basic level by following the principles of test driven development, and at a higher level by providing simulated or offline signals to the program.
+Software can be examined at a basic level by following the principles of test driven development, and at a higher level by providing simulated or offline signals to the program. The integration of the various systems used in the final solution can be tested via output to the mini Sailbot navigation system and navigation in a pool.
 
 \subsubsection{\label{sec:method:proposed-analysis:hardware}Hardware}
-After meeting with our sponsor, we will develop a test plan to verify that our hardware meets their physical constraints and performance requirements.
+The Sailbot has ample room in the hull of the boat for fairly large systems. these systems must be robust, immune to shaking and waterproof. Marine-grade cables that are standard use by the Sailbot team will serve as the primary connections from the sensors to the black-box detection electronics.
+
 
 \subsection{\label{sec:method:evaluation-of-alternative-designs}Evaluation of Alternative Designs}
 
 \subsection{\label{sec:method:proposed-verification-procedure}Proposed Verification Procedure}
+
+\subsubsection{\label{sec:method:proposed-verification-procedure:software}Software}
+The correct functioning of software is checked at every stage of development, using three levels, two of which are automated.
+
+Software code not depending on hardware interaction is examined through unit tests, which verify that functions produce the correct output under all anticipated conditions. These tests are written before or simultaneously with the code to be tested.
+
+The emergent, holistic functionality of the software (including user interface elements are outputs) can be tested using functional tests that provide simulated realistic input, possibly simulating hardware components, and examine the output.
+
+The final test level is user tests, which include testing on the actual vessel in real and simulated environments, as well as any other manual testing.
+
+These test levels are not performed in sequence; all testing levels should interact with the development process, and be re-evaluated whenever a notable change is made. Figure \ref{fig:software-testing} shows the connection of testing and development.
+
+\begin{figure}
+\includegraphics[width=100mm,natwidth=494,natheight=299]{"./image/software-testing"}
+\caption[Software development cycle]{\label{fig:software-testing}Development cycle. Tests are written before or simultaneously with production code, and both automated and manual testing is run intermittently during development.}
+\end{figure}
+
+\subsubsection{\label{sec:method:proposed-verification-procedure:hardware}Hardware}
+Hardware systems should be tested in isolation to verify that they produce the correct output for various inputs. Then the systems can be couple together, and software control added. The hardware is then tested as part of the software "user tests".
+
+The hardware requiring testing will be several emitters and detectors, possibly of various types. The total power draw will be checked, along with physical and electronic output.
