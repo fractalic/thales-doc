@@ -1,0 +1,82 @@
+This project is sponsored by the UBC Sailbot team, with the goal of overcoming a significant challenge to autonomous robotic vessels on open water: floating hazards. Debris in the water is difficult to detect, and attempts made to cross the Atlantic ocean with such an autonomous boat have often been sunk by aquatic hazards.
+
+The Microtransat Challenge \cite{transat-history} is project that has been running for several years where participants are required to build an autonomous sailboat capable of sailing from North America to Europe, or in the opposite direction. Previous attempts at the Microtransat challenge have failed mostly through processes other than collision, but the few that have sunk due to collisions have primarily been caught in fishing nets \cite{transat-history}. Anecdotal evidence gathered from fishermen and a sailor who crossed the Atlantic seven times in an educational schooner tells us that the vast majority of all obstacles the Sailbot may encounter at sea will be found withing a few days' sailing of shore; this is indicated by the Microtransat history, where those boats that failed due to collision or unknown circumstances did so long before crossing into international waters.
+
+
+\subsection{\label{sec:intro:key-issues}Key Issues}
+The greatest challenge is to reliably produce an accurate model of the boat's surroundings. The first challenge is to test the system with limited ability to test on the water.  Waves will be particularly difficult to test with.  Finally, the solution must be able to examine its surrounding under varied light conditions, and with minimal processing power.
+
+A robotic vision system requires extensive calibration and offline analysis of the signals it produces. Since testing on the water requires considerable time, it is infeasible to adequately examine the capabilities of the vision system without an on-shore testing environment that closely matches conditions. Such an environment should be able to simulate bright and dark lighting conditions, sections of view that are blocked by other equipment, fog and rain, as well as the motion of the boat.
+
+Also, the processing power of the vision system is physically constrained by the capabilities of Raspberry Pi (or similar) hardware, and further constrained by the need to minimize the energy use of the hardware while examining the environment in realtime. To accomplish this, information provided by sensors may need to be cleverly downsampled, and processing algorithms should be selected based on performance while potentially compromising accuracy for speed.
+
+
+\subsection{\label{sec:intro:existing-solutions}Existing Solutions}
+The Sailbot team has access to an IR camera, which they got with the intention of using IR navigation. The IR camera will be tested during the week of November 2, 2014 however it is expected to be able to be able to distinguish small boats in relatively calm water with ease. Small boat detection via IR detection has been previously developed for port traffic applications by the Vision Lab of Old Dominion University in Virginia \cite{ODU-boat-IR-detection}.
+
+No other teams that have attempted the Microtransat challenge have incorporated any obstacle detection systems; many had other, more fundamental physical weaknesses that prevented them from finishing the competition (such as flooding and failure of the electronics compartments, loss of navigation or steering ability, and broken masts) while only a few have been long enough at sea to fail at the hands of nets or other floating obstacles \cite{transat-history}.
+
+
+\subsection{\label{sec:intro:technical-background}Technical Background}
+Potential detection systems:
+\begin{itemize}
+
+\item Lidar (visible or IR): 
+low cost and power consumption, good resolution
+
+Easily obscured in adverse conditions - could result in missing objects
+
+\item Cameras: 
+Cheapest, existing software may be usable
+
+Processing intensive, only provides 2D images, lens must remain clean.  Difficult to distinguish obstacles from water
+
+\item Radar:
+Long range, high-quality preexisting units available
+
+May be unable to detect nearby objects.  Size, price and power consumption concerns
+
+\item Sonar:
+Relatively long range, reliable detection
+
+Difficult to detect shallow objects and nets. Housing may be difficult, may be more difficult to integrate into existing boat
+
+\item Passive acoustic:
+Possible supplement to other systems - detect ships.  Low cost, very low power - emergency backup detection?
+
+Can't detect many obstacles.  Doesn't provide directional information.
+
+\item Radio reciever:
+Buoys at the end of fishing nets are often marked with radio transponders. Easy to find basic directional information and avoid the area.
+
+\item Synthetic Aperture Radar
+Satellite based mapping available in real-time to ocean researchers. Can be used to identify wave patterns, eddies and convergent currents to find areas where small ocean debris is likely to accumulate \cite{SAR-manual}.
+
+Scans have an proportional relationship between temporal lag and resolution, so it may be tricky to find satellites data that scans the appropriate areas with a high enough resolution and low enough time lag to still be useful \cite{Mace}.
+\end{itemize}
+
+
+\subsection{\label{sec:intro:commercial}State of the Art - Commercial Systems}
+Our budget is initially limited to \$1500, with more funding potentially available for promising solutions. This ceiling rules out most commercial products, however it is useful to examine their features for comparison against our requirements.
+
+The Autonomous Maritime Navigation Project uses a combination of radar, lidar, and optical cameras for autonomous small-boat navigation \cite{AMN}.
+
+
+\subsubsection{\label{sec:intro:commercial:lidar}Lidar Systems}
+A high-performance LIDAR system developed by Velodyne (the Velodyne Lidar Puck VLP-16 \cite{velodyne-vlp16}) selling at a minimum cost of \$8000 is the standard of 3-dimensional autonomous vision. This system offers a viewing area of 360$\degree$ horizontal, 30$\degree$ vertical, with 300 000 measurement points delivered every second, effectively forming a 3D point mesh within the viewport. Velodyne's more expensive and more capable products are used by Google's autonomous vehicles.
+
+Velodyne's least expensive offering is very light, at 600 grams, with dimensions $\varnothing$100mm by 65mm tall, and maximum power draw of ten Watts.
+
+
+\subsubsection{\label{sec:intro:commercial:radar}Radar Systems}
+Industry standard marine radar systems such as those made by Raymarine typically cost upwards of \$2000, which is slightly larger than our budget. Raymarine makes radome and open array models, where the open array design includes an exposed rotating emitter bar.
+
+The radome, such as the Raymarine E-Series \cite{raymarine-eseries}, is better suited to small boats, and it has a shorter range more closely matched to our use case. However, such systems are typically optimized for long range detection, with the minimum distance to a detectable object being tens to several hundred metres (assuming the unit is mounted in a plane parallel to the boat deck).
+
+Radomes are frequently used by fishing vessels to monitor the shape of deployed nets based on the positions of the net buoys. This shape analysis is usually done by eye, however.
+
+Typical radomes weigh 1.5 to 6 kilograms, and consume ten to 45 Watts at full output power. Such a system provides horizontal and vertical viewing regions of approximately 70$\degree$.
+
+
+\subsection{\label{sec:intro:alternatives}Alternative Strategies}
+We are not aware of any additional alternative strategies at this time. Any solution will likely be some combination of those presented in the Technical Information section.
