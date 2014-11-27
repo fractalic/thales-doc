@@ -18,6 +18,19 @@ The design that will be most likely to see all obstacles at appropriate distance
 \item SAR, real-time satellite-based radio imaging to find convergent currents and eddies where floating debris is likely to accumulate
 \end{itemize}
 
+\subsubsection{\label{sec:method:proposed-design:ais}The AIS system}
+The most straightforward method to detect the position and velocity of nearby large boats is with an AIS receiver. Typically, boats of all types (tankers, cargo ships, and passenger vessels) longer than 20m are required to carry an AIS emitter \cite{us-ais-requirements}. We require only a receiver, such as the EasyAIS A025 sold by WeatherDock (shown in figure \ref{fig:easyais-a025}), and a VHF antenna, connected to our Raspberry Pi, running a copy of the AIS signal decoder from the GPSD project.
+
+The signals emitted by any AIS-compliant device are sent as serial data in the NMEA (National Marine Electronics Association) 0183 or 2000 format \cite{nmea__standards}. This device uses NMEA 0183, which can be easily decoded in Python using the premade library written by the GPSD project \cite{gpsd__overview}.
+
+The receiver weighs 400g, measures 140mm by 140mm by 35mm, and consumes 720 mW of power during operation. The sailbot can easily support this size and weight, though the high power draw means that this device can only be operated sporadically. With an estimated range of 20km, a readout every 20 minutes would be sufficient to identify boats with a relative velocity of 60km/h -- the estimated speed of most cargo vessels of 40 km/h plus the maximum velocity of the sailbot equal to 20 km/h.
+
+\begin{figure}
+\includegraphics[width=80mm,natwidth=540,natheight=459]{"./image/ais-a025"}
+\caption[AIS A025 by WeatherDock.]{\label{fig:easyais-a025}AIS A025, an inexpensive AIS receiver manufactured by WeatherDock. The device emits serial signals based on a variant of the NMEA serial communication standard.}
+\end{figure}
+
+The A025 is a relatively inexpensive device, retailing for about \$500. 
 
 
 \subsection{\label{sec:method:proposed-analysis}Proposed Analysis}
