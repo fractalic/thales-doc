@@ -1,6 +1,6 @@
 (Assigned)
 [Notes]
-
+{STATUS}
 
 Add to background- info on what the challenge is, what happened to previous attempts, what Sailbot is and their projects. Condense all this here
 
@@ -23,7 +23,7 @@ Move details out of Project objectives, just have summaries there.
 
 lost fishing nets (abandoned marine debris) is not worth the effort. Too rare. The ocean is big, we are small.
 
-Make it clear that we aren't doing avoidance, only detection. Early on. (Ben)
+Make it clear that we aren't doing avoidance, only detection. Early on. (Ben) {CLOSED}
 
 Existing Solutions section isn't meant for what Sailbots' done- it's meant for what outside solutions are there.
 
