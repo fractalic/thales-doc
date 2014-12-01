@@ -4,8 +4,6 @@
 
 IR testing + pictures from the results, showing that Hey guess what we have access to an IR camera. Put pictures in the software section
 
-Sailbot has IR camera and AIS. Unless these devices don't meet our requirements or we decide to add radar/sonar, we don't need to order anything.
-
 Fill out Software and Testing
 
 fill out executive summary. it sucks, we all know it sucks.
@@ -24,8 +22,6 @@ Expand timeline of our work
 
 Image of fishing regions
 
-Image of shipping routes
-
 Detail programming libraries for object identification (eg. OpenCV) and explain suitability for this project.
 
 Detail software-based obstacle detection theory (Kalman filters or something)
@@ -34,6 +30,14 @@ Add details of how to build a low-power radar system
 Ditto for infrared
 
 Refine deliverables
+
+Table 1: obstacles and risk may need to be moved (physically moved down on the page, but this needs to be done once the text is more finalized)
+
+Proposed design could use an IR and Radar section too- currently only has an AIS subsection.
+
+
+
+{CLOSED} Find VHF radio for AIS (Ben)
 
 {CLOSED} Existing Solutions section isn't meant for what Sailbots' done- it's meant for what outside solutions are there. (Riley- CLOSED) 
 
@@ -54,3 +58,7 @@ Refine deliverables
 {CLOSED} Focus technical background on methods we'll use, move others to Alternatives. (Riley)
 
 {CLOSED} SAR is a bonus objective, totally not needed but would be nice to have. Downgrade other options (remove passive acoustic) [BEN>> I think we need to strongly differentiate between possible devices and our actual method. The background should contain a comprehensive list of all possible methods.](Riley- CLOSED)
+
+{CLOSED} Image of shipping routes (Riley- added to Proposed Method)
+
+{CLOSED} Sailbot has IR camera and AIS. Unless these devices don't meet our requirements or we decide to add radar/sonar, we don't need to order anything. (Riley- I think this is clear now)
