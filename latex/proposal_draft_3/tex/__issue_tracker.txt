@@ -25,8 +25,6 @@ Move details out of Project objectives, just have summaries there.
 
 lost fishing nets (abandoned marine debris) is not worth the effort. Too rare. The ocean is big, we are small.
 
-Make it clear that we aren't doing avoidance, only detection. Early on. (Ben) {CLOSED}
-
 Existing Solutions section isn't meant for what Sailbots' done- it's meant for what outside solutions are there.
 
 Existing Solutions and State of the Art Commercial Systems could potentially be merged. What's the difference?
@@ -53,4 +51,6 @@ Ditto for infrared
 
 Refine deliverables
 
-Find VHF radio for AIS (Ben) {CLOSED}
+
++Find VHF radio for AIS (Ben) {CLOSED}
++Make it clear that we aren't doing avoidance, only detection. Early on. (Ben) {CLOSED}
