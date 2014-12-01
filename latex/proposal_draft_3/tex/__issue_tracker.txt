@@ -6,7 +6,7 @@ Add to background- info on what the challenge is, what happened to previous atte
 
 IR testing + pictures from the results, showing that Hey guess what we have access to an IR camera. Put pictures in the software section
 
-SAR is a bonus objective, totally not needed but would be nice to have. Downgrade other options (remove passive acoustic)
+SAR is a bonus objective, totally not needed but would be nice to have. Downgrade other options (remove passive acoustic) [BEN>> I think we need to strongly differentiate between possible devices and our actual method. The background should contain a comprehensive list of all possible methods.]
 
 Sailbot has IR camera and AIS. Unless these devices don't meet our requirements or we decide to add radar/sonar, we don't need to order anything.
 
