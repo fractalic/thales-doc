@@ -54,3 +54,7 @@ Ditto for infrared
 Refine deliverables
 
 {CLOSED} Find VHF radio for AIS (Ben)
+
+Table 1: obstacles and risk may need to be moved (physically moved down on the page, but this needs to be done once the text is more finalized)
+
+Proposed design could use an IR and Radar section too- currently only has an AIS subsection.

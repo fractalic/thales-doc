@@ -8,14 +8,26 @@ Low-floating objects will typically have a temperature near the temperature of t
 
 
 \subsection{\label{sec:method:proposed-design}Proposed Design}
-The design that will be most likely to see all obstacles at appropriate distances will rely on AIS for large boats, IR for small boats, radio reciever for nets and SAR for passive small obstacle detection. Two of these, AIS and SAR, are easily implemented solutions that rely solely on external data (no on-board sensors) and coding for positioning. The radio receiver simply needs to identify the direction of a radio source to find a net marker, and avoiding that area should keep the boat away from any nets. The IR detection will be the most difficult of the individual systems to test and implement, and the true challenge will be integrating all four systems to appropriately manage data from each source.
+The design that will be most likely to see all obstacles at appropriate distances will rely on AIS for large boats, IR for small boats,and  a small radar or radio reciever for nets. AIS is an easily implemented solution that rely solely on external data (no on-board sensors) and coding for positioning. The AIS module has already been purchased by the Sailbot team, and so its price and power budget are already taken care of- the module simply needs to be implemented. The radio receiver needs to identify the direction of a radio source to find a net marker, and avoiding that area should keep the boat away from any nets. The IR detection will be the most difficult of the individual systems to test and implement, and the true challenge will be integrating all three systems to appropriately manage data from each source.
+
+Most of the teams effort will be directed towards implementing the IR camera. From our preliminary testing it seems that the IR camera will be the primary detection method, as it is able to clearly see boats at a large range, small floating obstacles at medium range, and the nighttime detection is excellent. Further, while AIS is useful around the coast, for nearly the full duration of the Sailbot's trip from the start to the finish line any boat encounters will be exceedingly rare. Images from an online AIS tracking source, shown below, shows this. Further, tracking all journeys across the north Atlantic during the third quarter of 2013 (the same time frame as the Sailbot will launch in 2015) shows the most common shipping lanes and the rarity of ships outside of these major lanes \cite{marine-traffic}.
+
+\begin{figure}
+\includegraphics[width=120mm,natwidth=540,natheight=459]{"./image/AIS_emitters_north_atlantic"}
+\caption[All AIS emitters in the North Atlantic on Wednesday, November 26 2014.]{\label{fig:ais-emitters}Blocks show how many boats were uploading position data via AIS transmitters in a given area. The north Atlantic shows next to no activity in the prosposed path, except near the shores. There were over 59,000 worldwide emitters on this day.}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=120mm,natwidth=540,natheight=459]{"./image/AIS-tracking-Q3-2013"}
+\caption[AIS- captured tracking data for Q3 2013]{\label{fig:ais-emitters}All routing data sent via AIS during the third quarter of 2013.}
+\end{figure}
 
 
+The proposed design for the obstacle detection with the Sailbot team will incorporate, in order of most important to least:
 \begin{itemize}
+\item IR beacon and detector, providing a 2D image for small boat and obstacle detection
+\item Radar module OR a simple radio receiver, to find radio transponders placed on net markers
 \item AIS, an internationally managed system for large boats to communicate positions, headings and speeds
-\item IR beacon and detector, providing a 2D image for small boat detection
-\item Radio receiver, to find radio transponders placed on net markers
-\item SAR, real-time satellite-based radio imaging to find convergent currents and eddies where floating debris is likely to accumulate
 \end{itemize}
 
 \subsubsection{\label{sec:method:proposed-design:ais}The AIS system}
