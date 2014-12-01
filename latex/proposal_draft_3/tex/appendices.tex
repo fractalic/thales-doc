@@ -2,7 +2,7 @@
 % Show appendix character in front of subsection number.
 \renewcommand{\thesubsection}{\Alph{subsection}}
 \renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
-\subsection{\label{app:AppendixA}Detection principles} 
+\subsection{\label{app:AppendixA}Obstacle detection} 
 
 \subsubsection{\label{app:minimum-detection-distance}Minimum detection distance}
 Constraints on the viewing area appear with any method of detection, whether radar, lidar, on infrared. For directional emitters, the minimum detection range is given by trigonometry and depends only on the vertical beam width and the mounting angle of the device. $d = h/\text{tan}(\eta)$, where $\eta=\pi/2-(\theta/2+\phi)$ given by $\theta$, the vertical beam spread, and $\phi$, the emitter mount angle. Figure \ref{fig:emitter-angle} details the trigonometric analysis.
@@ -10,6 +10,19 @@ Constraints on the viewing area appear with any method of detection, whether rad
 \includegraphics[width=70mm,natwidth=505,natheight=394]{"./image/directional-emitters"}
 \caption[Minimum distance to detected obstacle.]{\label{fig:emitter-angle}Minimum detection distance for a directional emitter.}
 \end{figure}
+
+
+\subsubsection{\label{app:obstacle-frequency}Frequency of floating obstacles}
+Given the vast size of the Atlantic ocean, floating obstacles are rare. Nevertheless, it is instructive to provide a reasonable guess of the space between obstacles of different types.
+
+From \cite{jallal__how-many-ships}, we can say that their are about 50000 container ships in the world at any given moment. These travel at about 25 knots (50 km/h) \cite{maersk__triple-e-class}, making the 3000km Atlantic crossing in about 20 days. The turnaround time (the length of time spent in port is about 1 day \cite{port-technology__global-turnaround-times}, which will be neglected here).
+
+Let's assume 20\% of the world's shipping occurs somewhere in the north atlantic, near our route. The Microtransat organisers estimate that it will take our boat two to three months to complete the crossing, so that a given ship can be assumed to cross our route five times during our trip. Eyeballing, the area of ocean of interest, bounded by the most northern and southern routes the Sailbot is likely to take, is 1/10 of the full 100 Mkm size of the Atlantic \cite{worldatlas__atlantic-ocean}.
+
+So, we have $\frac{10000000}{0.2*50000*5}=200$. This is the average area of ocean, in km$^2$, containing one shipping vessel.
+
+Now, during peak season, there are about 1000 icebergs in the North Atlantic \cite{natgeo__iceberg-frequency}. This is about 50 times less than the number of ships, leading to an area density of one per 10000 km$^2$.
+
 
 \subsection{\label{app:software-testing-methodology}Software Testing Methodology}
 This appendix outlines a particular form of test driven development, inspired by Peter Provost \cite{provost-tdd} and James O. Coplien \cite{coplien-tdd-waste}.

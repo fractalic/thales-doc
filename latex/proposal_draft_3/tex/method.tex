@@ -1,6 +1,23 @@
 \subsection{\label{sec:method:theory}Theory}
 There are numerous potential methods of detecting floating and undersea obstacles. Though these have rarely been applied to autonomous detection of objects, the functionality and expected usability of each system is discussed below. Also, general detection principles applicable to many detection schemes are discussed.
 
+\subsubsection{\label{sec:method:theory:obstacles}Obstacles}
+To determine the most important elements of our design, it is important to understand the magnitude of the risk posed by various types of floating hazards. Some of these hazards are detailed in Table \ref{tab:obstacles}, where it becomes apparent that AIS, detecting large boats, is the most critical piece of our obstacle detection scheme. The derivation of the frequency estimates is detailed in Appendix \ref{app:obstacle-frequency}.
+
+\begin{table}
+\caption{\label{tab:obstacles}Obstacles and risk}
+\begin{tabular}{c|c|c|c}
+
+Obstacle & Location & Frequency & Damage\\[0.6cm]
+\hline
+
+Shipping vessels & Entire route &200 km$^2$ & Severe \\
+Icebergs & Entire route & 10000 km$^2$ & Severe \\
+Logs & Entire route, drawn to gyres & Low & Moderate \\
+
+\end{tabular}
+\end{table}
+
 \subsubsection{\label{sec:method:passive-infrared-detectors}Passive infrared detectors}
 Passive IR detectors examine their surroundings according to temperature. Given no IR emission from a beacon, the intensity of radiation emitted by an object depends on its temperature and emissivity.
 
@@ -19,7 +36,7 @@ Most of the teams effort will be directed towards implementing the IR camera. Fr
 
 \begin{figure}
 \includegraphics[width=120mm,natwidth=540,natheight=459]{"./image/AIS-tracking-Q3-2013"}
-\caption[AIS- captured tracking data for Q3 2013]{\label{fig:ais-emitters}All routing data sent via AIS during the third quarter of 2013.}
+\caption[AIS- captured tracking data for Q3 2013]{\label{fig:ais-emitters-amortized}All routing data sent via AIS during the third quarter of 2013.}
 \end{figure}
 
 

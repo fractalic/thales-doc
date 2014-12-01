@@ -10,7 +10,7 @@ The boat is a 4m scale-up of the 1.5m boat successfully used by the Sailbot team
 The Microtransat Challenge \cite{transat-history} is a project that has been running for several years where participants are required to build an autonomous sailboat capable of sailing from North America to Europe, or in the opposite direction. Previous attempts at the Microtransat challenge have failed mostly through processes other than collision, but the few that have sunk due to collisions have primarily been caught in fishing nets \cite{transat-history}. Anecdotal evidence gathered from fishermen and a sailor who crossed the Atlantic seven times in a schooner tells us that the vast majority of all obstacles the Sailbot may encounter at sea will be found withing a few days' sailing of shore; this is indicated by the Microtransat history, where those boats that failed due to collision or unknown circumstances did so long before crossing into international waters. This is also confirmed by Figure \ref{fig:ais-snapshot}, which shows the density AIS-equipped boats, highest near the shore, at a representative instant in time (November 2014) \cite{marine-traffic}.
 
 \begin{figure}
-\includegraphics[width=150mm,natwidth=792,natheight=313]{"./image/AIS_emitters_north_atlantic"}
+\includegraphics[width=150mm,natwidth=792,natheight=313]{"./image/AIS_emitters_north_atlantic_2"}
 \caption[Instantaneous position of AIS vessels.]{\label{fig:ais-snapshot}Representative instantaneous snapshot of the positions of all AIS-equipped vessels. Most are near the shore, and a small cluster of islands in the mid-atlantic.}
 \end{figure}
 
@@ -82,5 +82,5 @@ A high-performance LIDAR system developed by Velodyne (the Velodyne Lidar Puck V
 Velodyne's least expensive offering is very light, at 600 grams, with dimensions $\varnothing$100mm by 65mm tall, and maximum power draw of ten Watts. Lidar is currently considered an alternative strategy because all available systems seem to be too far outside of our budget.
 
 
-\subsubsection{\label{sec:intro:alternatives:sar}Sonar}
+\subsubsection{\label{sec:intro:alternatives:sonar}Sonar}
 Sonar, working on the same prinicple as radar but with sound waves, is the traditional go-to for underwater detection. It has a relatively long range and provides reliable detection of underwater objects, but is limited to objects that are quite dense and wholly immersed in water (or have a large underwater crosssection). As such, sonar can't be effectively used to detect shallow objects or nets; its only use in Sailbot's application would be for detecting massive boats and tankers, but the AIS system does this much more effectively and at a much larger range.
