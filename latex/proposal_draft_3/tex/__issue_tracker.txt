@@ -2,33 +2,17 @@
 [Notes]
 {STATUS}
 
-Add to background- info on what the challenge is, what happened to previous attempts, what Sailbot is and their projects. Condense all this here
-
 IR testing + pictures from the results, showing that Hey guess what we have access to an IR camera. Put pictures in the software section
-
-SAR is a bonus objective, totally not needed but would be nice to have. Downgrade other options (remove passive acoustic) [BEN>> I think we need to strongly differentiate between possible devices and our actual method. The background should contain a comprehensive list of all possible methods.]
 
 Sailbot has IR camera and AIS. Unless these devices don't meet our requirements or we decide to add radar/sonar, we don't need to order anything.
 
-Focus technical background on methods we'll use, move others to Alternatives.
-
 Fill out Software and Testing
 
-AIS and SAR defined earlier- in technical background. By the time they finish the background, there should be no questions as to what each system is/ how it works.
-[BEN>> I think it's best to provide an overview in the technical background. Something like "AIS is a network of radio beacons that ships use to extract information from each other". Then in the method section "AIS communicates over the NMEA protocol, and we'll need some serial plug with connections to our RPi or Arduino". This might be exactly what you wrote ;)]
-
 fill out executive summary. it sucks, we all know it sucks.
-
-would LIDAR actually work? Really move it to Alternatives, since its now outside of both our power and price ranges. [BEN>> agree]
 
 Move details out of Project objectives, just have summaries there.
 
 lost fishing nets (abandoned marine debris) is not worth the effort. Too rare. The ocean is big, we are small.
-
-Existing Solutions section isn't meant for what Sailbots' done- it's meant for what outside solutions are there.
-
-Existing Solutions and State of the Art Commercial Systems could potentially be merged. What's the difference?
-[Ben>> Initially I would have said that an "existing solution" is some system of sensors and software that another group used to autonomously avoid obstacles. Since we haven't found anything like that, I'd say there isn't a difference.]
 
 Background: say what we need to detect, why, and what we don't need to detect (dont need is currently in Objectives)
 
@@ -51,6 +35,22 @@ Ditto for infrared
 
 Refine deliverables
 
+{CLOSED} Existing Solutions section isn't meant for what Sailbots' done- it's meant for what outside solutions are there. (Riley- CLOSED) 
 
-+Find VHF radio for AIS (Ben) {CLOSED}
-+Make it clear that we aren't doing avoidance, only detection. Early on. (Ben) {CLOSED}
+{CLOSED} Find VHF radio for AIS (Ben)
+
+{CLOSED} Add to background- info on what the challenge is, what happened to previous attempts, what Sailbot is and their projects. Condense all this here. (Riley- seems CLOSED to me)
+
+{CLOSED} Make it clear that we aren't doing avoidance, only detection. Early on. (Ben)
+
+{CLOSED} Existing Solutions and State of the Art Commercial Systems could potentially be merged. What's the difference?
+[Ben>> Initially I would have said that an "existing solution" is some system of sensors and software that another group used to autonomously avoid obstacles. Since we haven't found anything like that, I'd say there isn't a difference.] (Riley- I merged the two. There really isn't much to say there. I'll call it CLOSED)
+
+{CLOSED} would LIDAR actually work? Really move it to Alternatives, since its now outside of both our power and price ranges. [BEN>> agree] (Riley- CLOSED)
+
+{CLOSED} AIS and SAR defined earlier- in technical background. By the time they finish the background, there should be no questions as to what each system is/ how it works.
+[BEN>> I think it's best to provide an overview in the technical background. Something like "AIS is a network of radio beacons that ships use to extract information from each other". Then in the method section "AIS communicates over the NMEA protocol, and we'll need some serial plug with connections to our RPi or Arduino". This might be exactly what you wrote ;)] (Riley- agree. CLOSED)
+
+{CLOSED} Focus technical background on methods we'll use, move others to Alternatives. (Riley)
+
+{CLOSED} SAR is a bonus objective, totally not needed but would be nice to have. Downgrade other options (remove passive acoustic) [BEN>> I think we need to strongly differentiate between possible devices and our actual method. The background should contain a comprehensive list of all possible methods.](Riley- CLOSED)
