@@ -40,8 +40,6 @@ Proposed design could use an IR and Radar section too- currently only has an AIS
 
 {CLOSED} Existing Solutions section isn't meant for what Sailbots' done- it's meant for what outside solutions are there. (Riley- CLOSED) 
 
-{CLOSED} Find VHF radio for AIS (Ben)
-
 {CLOSED} Add to background- info on what the challenge is, what happened to previous attempts, what Sailbot is and their projects. Condense all this here. (Riley- seems CLOSED to me)
 
 {CLOSED} Make it clear that we aren't doing avoidance, only detection. Early on. (Ben)
