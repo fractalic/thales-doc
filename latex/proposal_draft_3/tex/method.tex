@@ -68,20 +68,44 @@ It is important to verify the correct functioning both of the hardware sensors a
 The Sailbot team has previously competed with small sailboats. They have a small sailboat (approximately 3 feet long) that's completely built and thoroughly tested. We have full access to this boat and freedom to modify it to mount various detection systems in order to perform scale testing on it. This small boat will serve as a robust testing mechanism to try different orientations and combinations of systems.
 
 \subsubsection{\label{sec:method:proposed-analysis:software}Software}
-Software can be examined at a basic level by following the principles of test driven development, and at a higher level by providing simulated or offline signals to the program. The integration of the various systems used in the final solution can be tested via output to the mini Sailbot navigation system and navigation in a pool.
+Software can be examined at a basic level by following the principles of test driven development, and at a higher level by providing simulated or offline signals to the program. The integration of the various systems used in the final solution can be tested via in a pool using the current, small Sailbot.
+
+\subsubsection{\label{sec:method:proposed-analysis:ais-software}AIS Software}
+
+The software connected to the AIS receiver is easy to verify. Given a data stream sent by our AIS receiver, we need to check that the coordinates of boats that we decode match the coordinates that are publicly available on online AIS decoders.
+
+\subsubsection{\label{sec:method:proposed-analysis:infrared-software}Infrared detection software}
+
+Analysis of the infrared obstacle detection software system can be broken down into stages:
+\begin{enumerate}
+\item[Simulation] Send a simulated image to the software
+\item[Staging] Send a real image to the software
+\item[Realtime] Send real images to the software, at the rate we expect to use in the deployed system
+\end{enumerate}
+
+The simulation stage will determine what shapes and contrast ratios can be detected by a given algorithm. At this stage, we generate an image, pass it to the software, and observe the system of coordinates output by the program. Depending on the feature identification algorithm, we may also need to compare the computed size and distance based on an artificial horizon against the generated image.
+
+In the staging step, we send real images obtained using our hardware to our software system. We again check for correct compution of coordinates, size and distance of image features, under a variety of lighting conditions including daylight, night, and sunset.
+
+Finally, the realtime scenario is identical to staging, but with a constant stream of images. This step is to ensure that images can be fully processed before the next image is sent.
+
+For more information on general software testing methodology, refer to Appendix \ref{app:software-testing-methodology}.
 
 \subsubsection{\label{sec:method:proposed-analysis:hardware}Hardware}
 The Sailbot has ample room in the hull of the boat for fairly large systems. these systems must be robust, immune to shaking and waterproof. Marine-grade cables that are standard use by the Sailbot team will serve as the primary connections from the sensors to the black-box detection electronics.
 
+The most important hardware analysis will focus on power use, and will require us to run all of our detection equipment in the configuration we expect to deploy in the final product, while monitoring to ensure that it does not exceed our specification.
+
+Other analysis of the hardware requires that we obtain images from our infrared detector under various lighting and weather conditions. In this stage, we need to categorize the obstacle we observe along with the contrast ratio between the obstacle center and the image background and the frequency at which the obstacle is most visible.
 
 \subsection{\label{sec:method:evaluation-of-alternative-designs}Evaluation of Alternative Designs}
 
 \subsection{\label{sec:method:proposed-verification-procedure}Proposed Verification Procedure}
 
-\subsubsection{\label{sec:method:proposed-verification-procedure:software}Software}
-For more information on software testing methodology, refer to Appendix \ref{app:software-testing-methodology}.
+Hardware systems should be tested in isolation to verify that they produce the correct output for various inputs. Then the systems can be coupled together, and software control added.
 
-\subsubsection{\label{sec:method:proposed-verification-procedure:hardware}Hardware}
-Hardware systems should be tested in isolation to verify that they produce the correct output for various inputs. Then the systems can be couple together, and software control added. The hardware is then tested as part of the software "user tests".
+After analysis of the hardware and software, as described in Section \ref{sec:method:proposed-analysis}, we will run our final series of tests, or "online analysis", which sends images to the software with the hardware mounted on the boat as it will be in the final implementation. In this step, we check the ability of the Sailbot to navigate around perceived hazards, using the navigation system provided by the Sailbot team.
 
-The hardware requiring testing will be several emitters and detectors, possibly of various types. The total power draw will be checked, along with physical and electronic output.
+The correct functioning of the software is confirmed if the Sailbot can be seen to navigate away from pre-placed obstacles of various types, under various lighting conditions.
+
+Finally, the power draw of the sensors and Raspberry Pi should be monitored during the obstacle analysis and avoidance process to ensure conformance with our requirements.

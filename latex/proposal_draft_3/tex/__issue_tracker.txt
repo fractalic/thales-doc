@@ -4,9 +4,9 @@
 
 IR testing + pictures from the results, showing that Hey guess what we have access to an IR camera. Put pictures in the software section
 
-Fill out Software and Testing
+{REVISED} Fill out Software and Testing
 
-fill out executive summary. it sucks, we all know it sucks.
+{REVISED} fill out executive summary. it sucks, we all know it sucks.
 
 Move details out of Project objectives, just have summaries there.
 
