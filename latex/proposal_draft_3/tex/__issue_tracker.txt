@@ -2,11 +2,13 @@
 [Notes]
 {STATUS}
 
-IR testing + pictures from the results, showing that Hey guess what we have access to an IR camera. Put pictures in the software section
+{REVISED} Refine deliverables
 
 {REVISED} Fill out Software and Testing
 
 {REVISED} fill out executive summary. it sucks, we all know it sucks.
+
+IR testing + pictures from the results, showing that Hey guess what we have access to an IR camera. Put pictures in the software section
 
 Move details out of Project objectives, just have summaries there.
 
@@ -29,8 +31,6 @@ Detail software-based obstacle detection theory (Kalman filters or something)
 Add details of how to build a low-power radar system
 Ditto for infrared
 
-Refine deliverables
-
 Proposed design could use an IR and Radar section too- currently only has an AIS subsection.
 
 
@@ -38,7 +38,7 @@ Proposed design could use an IR and Radar section too- currently only has an AIS
 
 {CLOSED} Find VHF radio for AIS (Ben)
 
-{CLOSED} Existing Solutions section isn't meant for what Sailbots' done- it's meant for what outside solutions are there. (Riley- CLOSED) 
+{CLOSED} Existing Solutions section isn't meant for what Sailbots' done- it's meant for what outside solutions are there. (Riley- CLOSED)
 
 {CLOSED} Add to background- info on what the challenge is, what happened to previous attempts, what Sailbot is and their projects. Condense all this here. (Riley- seems CLOSED to me)
 
