@@ -53,4 +53,4 @@ Ditto for infrared
 
 Refine deliverables
 
-Find VHF radio for AIS
+Find VHF radio for AIS (Ben) {CLOSED}
