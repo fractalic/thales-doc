@@ -8,12 +8,13 @@
 
 {REVISED} fill out executive summary. it sucks, we all know it sucks.
 
+{RESIVED} Expand timeline of our work. The work plan and schedule is meant to be a massive section (5pg by the guide)
+
+
+
+
 
 Work ranking from most important to least: (according to Riley)
-
-Expand timeline of our work. The work plan and schedule is meant to be a massive section (5pg by the guide)
-
-IR testing + pictures from the results, showing that Hey guess what we have access to an IR camera. Put pictures in the software section
 
 Detail software-based obstacle detection theory (Kalman filters or something)
 
@@ -24,16 +25,12 @@ Formatting and spacing of pictures/ images
 Add details of how to build a low-power radar system
 Ditto for infrared
 
-Need to test IR at sunset (looking to the west, right into the sun)
-
-Image of fishing regions
-
 Proposed Design could use an IR and Radar section too- currently only has an AIS subsection.
 
 
 
 
-
+{NOT NEEDED?}Need to test IR at sunset (looking to the west, right into the sun)
 
 {NOT NEEDED?} Actually, a lot of Objectives needs to be condensed and put earlier (background?) (Riley- I think we can leave this alone) 
 
@@ -43,6 +40,10 @@ Proposed Design could use an IR and Radar section too- currently only has an AIS
 
 
 
+
+{CLOSED}Image of fishing regions
+
+{CLOSED} IR testing + pictures from the results, showing that Hey guess what we have access to an IR camera. Put pictures in the software section
 
 {CLOSED} lost fishing nets (abandoned marine debris) is not worth the effort. Too rare. The ocean is big, we are small.
 
