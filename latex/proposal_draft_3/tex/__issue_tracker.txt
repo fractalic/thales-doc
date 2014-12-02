@@ -10,14 +10,6 @@
 
 IR testing + pictures from the results, showing that Hey guess what we have access to an IR camera. Put pictures in the software section
 
-Move details out of Project objectives, just have summaries there.
-
-lost fishing nets (abandoned marine debris) is not worth the effort. Too rare. The ocean is big, we are small.
-
-Background: say what we need to detect, why, and what we don't need to detect (dont need is currently in Objectives)
-
-Actually, a lot of Objectives needs to be condensed and put earlier (background?)
-
 Need to test IR at sunset (looking to the west, right into the sun)
 
 Expand timeline of our work
@@ -33,6 +25,19 @@ Ditto for infrared
 
 Proposed design could use an IR and Radar section too- currently only has an AIS subsection.
 
+
+
+
+{NOT NEEDED?} Actually, a lot of Objectives needs to be condensed and put earlier (background?) (Riley- I think we can leave this alone) 
+
+{NOT NEEDED?} Background: say what we need to detect, why, and what we don't need to detect (dont need is currently in Objectives)
+
+{NOT NEEDED?} Move details out of Project objectives, just have summaries there.
+
+
+
+
+{CLOSED} lost fishing nets (abandoned marine debris) is not worth the effort. Too rare. The ocean is big, we are small.
 
 {CLOSED} Table 1: obstacles and risk may need to be moved (physically moved down on the page, but this needs to be done once the text is more finalized) [BEN>> moved to theory section] (Ben)
 
