@@ -8,9 +8,9 @@
 
 {REVISED} fill out executive summary. it sucks, we all know it sucks.
 
-{RESIVED} Expand timeline of our work. The work plan and schedule is meant to be a massive section (5pg by the guide)
+{REVISED} Expand timeline of our work. The work plan and schedule is meant to be a massive section (5pg by the guide)
 
-
+{REVISED} Formatting and spacing of pictures/ images
 
 
 
@@ -19,8 +19,6 @@ Work ranking from most important to least: (according to Riley)
 Detail software-based obstacle detection theory (Kalman filters or something)
 
 Detail programming libraries for object identification (eg. OpenCV) and explain suitability for this project.
-
-Formatting and spacing of pictures/ images
 
 Add details of how to build a low-power radar system
 Ditto for infrared
