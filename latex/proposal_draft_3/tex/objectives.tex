@@ -1,12 +1,12 @@
-The objective of this project is to create a module capable of analyzing the dynamic nautical environment around a 5.5 meter sailboat. The device must be able to identify hazards up to 30 metres away, using minimal power.
-
-Tiny, light objects (such as dead fish, small clumps of seaweed, pieces of wood less than a foot long) pose virtually no threat to the sailboat outside of extreme storm conditions that the boat is not structurally built to withstand and the mast is expected to fail. We will not concern ourselves with these objects.
+The objective of this project is to create a system capable of analyzing the dynamic nautical environment around a 5.5 meter sailboat. The system must be able to identify hazards up to 30 metres away, using minimal power.
 
 Hazards of any shape, with a mass exceeding several kilograms, must be identifiable by the module when the sailboat is not less than 30m away from the hazard. This provides sufficient time for the sailboat to steer away from any object that might damage the boat.
 
-Large objects, such as tree trunks, boats, fishing nets and icebergs are the primary challenges for the obstacle detection system. The most massive (and dangerous) of these objects should be detected at a range of 100m; this range is reserved for large boats, tankers and icebergs and large standing nets. Small boats, in the size of private oceangoing fishing boats, should be detected at a minimum range of 50m, and logs should be detected at a range of 30m. These ranges have been determined by examining the relative sizes and mobility of these objects and comparing that to the range that the sailbot (at a maximum operating speed of 12 knots) would need to be sure to avoid the hazard.
+Small floating debris is difficult to detect, but poses no significant hazard to the sailboat - we will not attempt to detect such objects.
 
-Furthermore, due to power constraints, the module cannot use more than 4000 mW of power at any given time, and should not use more than 1mW, sustained.
+Larger objects, such as tree trunks, boats, fishing nets and icebergs, are the primary challenges for the obstacle detection system. The most massive (and dangerous) of these objects should be detected at a range of 100m; this range is reserved for large boats, tankers and icebergs and large standing nets. Small boats, in the size of private oceangoing fishing boats, should be detected at a minimum range of 50m, and logs should be detected at a range of 30m. These ranges have been determined by examining the relative sizes and mobility of these objects and comparing that to the range that the sailbot (at a maximum operating speed of 12 knots) would need to be sure to avoid the hazard.
+
+Furthermore, due to power constraints, the module cannot use more than 36 W of power at any given time, and should not use more than 2 W, sustained.
 
 We have approximately two 1 ft cubed spaces in the hull of the boat to fit our equipment. Additional sensors can be placed in the keel, 1.8 m below the waterline of the boat in the counterweight, and on the mast. Any equipment on the mast must be light and small to maintain the balance of the boat, while minimizing aerodynamic losses.
 

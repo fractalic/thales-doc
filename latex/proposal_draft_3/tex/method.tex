@@ -2,7 +2,7 @@
 There are numerous potential methods of detecting floating and undersea obstacles. Though these have rarely been applied to autonomous detection of objects, the functionality and expected usability of each system is discussed below. Also, general detection principles applicable to many detection schemes are discussed.
 
 \subsubsection{\label{sec:method:theory:obstacles}Obstacles}
-To determine the most important elements of our design, it is important to understand the magnitude of the risk posed by various types of floating hazards. Some of these hazards are detailed in Table \ref{tab:obstacles}, where it becomes apparent that AIS, detecting large boats, is the most critical piece of our obstacle detection scheme. The derivation of the frequency estimates is detailed in Appendix \ref{app:obstacle-frequency}.
+To determine the most important elements of our design, it is important to understand the magnitude of the risk posed by various types of floating hazards. Some of these hazards are detailed in Table \ref{tab:obstacles}, where it becomes apparent that detecting large boats using AIS is the most critical piece of our obstacle detection scheme. The derivation of the frequency estimates is detailed in Appendix \ref{app:obstacle-frequency}.
 
 \begin{table}
 \caption{\label{tab:obstacles}Obstacles and risk}
@@ -25,13 +25,13 @@ Low-floating objects will typically have a temperature near the temperature of t
 
 
 \subsection{\label{sec:method:proposed-design}Proposed Design}
-The design that will be most likely to see all obstacles at appropriate distances will rely on AIS for large boats, IR for small boats,and  a small radar or radio reciever for nets. AIS is an easily implemented solution that rely solely on external data (no on-board sensors) and coding for positioning. The AIS module has already been purchased by the Sailbot team, and so its price and power budget are already taken care of- the module simply needs to be implemented. The radio receiver needs to identify the direction of a radio source to find a net marker, and avoiding that area should keep the boat away from any nets. The IR detection will be the most difficult of the individual systems to test and implement, and the true challenge will be integrating all three systems to appropriately manage data from each source.
+The design that will be most likely to see all obstacles at appropriate distances will rely on AIS for large boats, IR for small boats,and  a small radar or radio reciever for nets. AIS is an easily implemented solution that rely solely on external data (no on-board sensors) and coding for positioning. The AIS module has already been purchased by the Sailbot team, and so its price and power budget are already taken care of - the module simply needs to be implemented. The radio receiver needs to identify the direction of a radio source to find a net marker, and avoiding that area should keep the boat away from any nets. The IR detection will be the most difficult of the individual systems to test and implement, and the true challenge will be integrating all three systems to appropriately manage data from each source.
 
 Most of the teams effort will be directed towards implementing the IR camera. From our preliminary testing it seems that the IR camera will be the primary detection method, as it is able to clearly see boats at a large range, small floating obstacles at medium range, and the nighttime detection is excellent. Further, while AIS is useful around the coast, for nearly the full duration of the Sailbot's trip from the start to the finish line any boat encounters will be exceedingly rare. Images from an online AIS tracking source, shown below, shows this. Further, tracking all journeys across the north Atlantic during the third quarter of 2013 (the same time frame as the Sailbot will launch in 2015) shows the most common shipping lanes and the rarity of ships outside of these major lanes \cite{marine-traffic}.
 
 \begin{figure}
 \includegraphics[width=120mm,natwidth=540,natheight=459]{"./image/AIS_emitters_north_atlantic"}
-\caption[All AIS emitters in the North Atlantic on Wednesday, November 26 2014.]{\label{fig:ais-emitters}Blocks show how many boats were uploading position data via AIS transmitters in a given area. The north Atlantic shows next to no activity in the prosposed path, except near the shores. There were over 59,000 worldwide emitters on this day.}
+\caption[All AIS emitters in the North Atlantic on Wednesday, November 26 2014.]{\label{fig:ais-emitters}Blocks show how many boats were uploading position data via AIS transmitters in a given area. The north Atlantic shows next to no activity in the proposed path, except near the shores. There were over 59,000 worldwide emitters on this day.}
 \end{figure}
 
 \begin{figure}
@@ -68,7 +68,7 @@ It is important to verify the correct functioning both of the hardware sensors a
 The Sailbot team has previously competed with small sailboats. They have a small sailboat (approximately 3 feet long) that's completely built and thoroughly tested. We have full access to this boat and freedom to modify it to mount various detection systems in order to perform scale testing on it. This small boat will serve as a robust testing mechanism to try different orientations and combinations of systems.
 
 \subsubsection{\label{sec:method:proposed-analysis:software}Software}
-Software can be examined at a basic level by following the principles of test driven development, and at a higher level by providing simulated or offline signals to the program. The integration of the various systems used in the final solution can be tested via in a pool using the current, small Sailbot.
+Software can be examined at a basic level by following the principles of test driven development, and at a higher level by providing simulated or offline signals to the program. The integration of the various systems used in the final solution can be tested in a pool using the current, small Sailbot.
 
 \subsubsection{\label{sec:method:proposed-analysis:ais-software}AIS Software}
 
@@ -92,9 +92,9 @@ Finally, the realtime scenario is identical to staging, but with a constant stre
 For more information on general software testing methodology, refer to Appendix \ref{app:software-testing-methodology}.
 
 \subsubsection{\label{sec:method:proposed-analysis:hardware}Hardware}
-The Sailbot has ample room in the hull of the boat for fairly large systems. these systems must be robust, immune to shaking and waterproof. Marine-grade cables that are standard use by the Sailbot team will serve as the primary connections from the sensors to the black-box detection electronics.
+The Sailbot has ample room in the hull of the boat for fairly large systems. These systems must be robust, immune to shaking, and waterproof. Marine-grade cables that are standard use by the Sailbot team will serve as the primary connections from the sensors to the black-box detection electronics.
 
-The most important hardware analysis will focus on power use, and will require us to run all of our detection equipment in the configuration we expect to deploy in the final product, while monitoring to ensure that it does not exceed our specification.
+The most important hardware analysis will focus on power use, and will require us to run all of our detection equipment in the configuration we expect to deploy in the final product while monitoring to ensure that it does not exceed our specification.
 
 Other analysis of the hardware requires that we obtain images from our infrared detector under various lighting and weather conditions. In this stage, we need to categorize the obstacle we observe along with the contrast ratio between the obstacle center and the image background and the frequency at which the obstacle is most visible.
 
