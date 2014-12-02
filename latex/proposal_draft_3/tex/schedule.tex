@@ -1,20 +1,29 @@
 IR:
+Write machine-vision software to identify objects in sample IR images. There are three main stages to this section: detecting small boats in calm conditions, detecting small obstacles in calm water, and detecting both in rough conditions. Detecting small boats in calm conditions is expected to be finished by February 1, 2015. Small obstacles should be able to be seen in calm water within two weeks of finishing boat detection, as the algorithms should be quite similar. The noise issues caused by rough water is expected to take a larger share of time to sort out, and this should be done by March 15, 2015. This time frame gives us several weeks' leeway to mount the final system and potentially test with the large Sailbot, should it be built in time.
 
-Write machine-vision software to identify objects in sample IR images
-
-Determine distance to detected objects
-
+Expected date of completion: March 15, 2015. 
 
 
 AIS:
-Use GPSD library to interpret AIS signals
+Use GPSD library to interpret AIS signals. Since we will be using an existing library and implenting it, this process should take no more than two weeks to implement the program and two weeks to test, as this project will be running in parallel to the main IR project and will have only one or two group members working on it at a time. Some lead time is needed to allow the AIS device to arrive.
+
+Expected date of completion: March 1, 2015.
+
+
+Radar:
+Using a radio receiver or radio system to detect nets should also be a solved problem; by purchasing a small module, the only issues we encounter are mounting and interfacing problems. The interfacing problems are similar to that of the AIS module, but no radar component has been purchased as of yet. As such, additional lead time is needed.
+
+Expected date of completion: April 1, 2015.
+
+
+Downsampling:
+Once the software has been developed, running time power requirements need to be minimized and the program processing optimized. Downsampling and power cycling techniques may be needed to ensure that the solution does not draw more power than the Sailbot can afford. Implementation of this is expected to take several weeks, but code optimization will take place during the coding process as well.
+
+Expected date of completion: April 15, 2015.
 
 
 Hardware:
-Mount IR camera and AIS receiver on Sailbot (secure, waterproof)
+The IR camera, AIS receiver and radar module need to be mounted on the Sailbot in a secure and waterproof location. While most of this work may be handled by the Sailbot mechanical team, we need to be able to work with them to test any configuration. Mounting of the final system is the last step in the process, and so is expected to be completed near the end of the term.
 
+Expected date of completion: April 15, 2015.
 
-Integration:
-Detect obstacles while mounted on Sailbot
-
-Combine IR and AIS data and pass to Sailbot navigation
