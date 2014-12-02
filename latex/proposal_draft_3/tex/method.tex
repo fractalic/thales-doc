@@ -30,11 +30,13 @@ The design that will be most likely to see all obstacles at appropriate distance
 Most of the teams effort will be directed towards implementing the IR camera. From our preliminary testing it seems that the IR camera will be the primary detection method, as it is able to clearly see boats at a large range, small floating obstacles at medium range, and the nighttime detection is excellent. Further, while AIS is useful around the coast, for nearly the full duration of the Sailbot's trip from the start to the finish line any boat encounters will be exceedingly rare. Images from an online AIS tracking source, shown below, shows this. Further, tracking all journeys across the north Atlantic during the third quarter of 2013 (the same time frame as the Sailbot will launch in 2015) shows the most common shipping lanes and the rarity of ships outside of these major lanes \cite{marine-traffic}.
 
 \begin{figure}
+\centering
 \includegraphics[width=120mm,natwidth=540,natheight=459]{"./image/AIS_emitters_north_atlantic"}
 \caption[All AIS emitters in the North Atlantic on Wednesday, November 26 2014.]{\label{fig:ais-emitters}Blocks show how many boats were uploading position data via AIS transmitters in a given area. The north Atlantic shows next to no activity in the proposed path, except near the shores. There were over 59,000 worldwide emitters on this day.}
 \end{figure}
 
 \begin{figure}
+\centering
 \includegraphics[width=120mm,natwidth=540,natheight=459]{"./image/AIS-tracking-Q3-2013"}
 \caption[AIS- captured tracking data for Q3 2013]{\label{fig:ais-emitters-amortized}All routing data sent via AIS during the third quarter of 2013.}
 \end{figure}
@@ -54,6 +56,7 @@ The signals emitted by any AIS-compliant device are sent as serial data in the N
 The receiver weighs 400g, measures 140mm by 140mm by 35mm, and consumes 720 mW of power during operation. The antenna weighs 114g, and is 122 cm tall. The sailbot can easily support this size and weight, though the high power draw of the receiver means that this device can only be operated sporadically. With an estimated range of 20km, a readout every 20 minutes would be sufficient to identify boats with a relative velocity of 60km/h -- the estimated speed of most cargo vessels of 40 km/h plus the maximum velocity of the sailbot equal to 20 km/h.
 
 \begin{figure}
+\centering
 \includegraphics[width=80mm,natwidth=540,natheight=459]{"./image/ais-a025"}
 \caption[AIS A025 by WeatherDock.]{\label{fig:easyais-a025}AIS A025, an inexpensive AIS receiver manufactured by WeatherDock. The device emits serial signals based on a variant of the NMEA serial communication standard.}
 \end{figure}
