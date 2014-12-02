@@ -30,19 +30,17 @@ The design that will be most likely to see all obstacles at appropriate distance
 Most of the teams effort will be directed towards implementing the IR camera. From our preliminary testing it seems that the IR camera will be the primary detection method, as it is able to clearly see boats at a large range, small floating obstacles at medium range, and the nighttime detection is excellent. Further, while AIS is useful around the coast, for nearly the full duration of the Sailbot's trip from the start to the finish line any boat encounters will be exceedingly rare. Images from an online AIS tracking source, shown below, shows this. Further, tracking all journeys across the north Atlantic during the third quarter of 2013 (the same time frame as the Sailbot will launch in 2015) shows the most common shipping lanes and the rarity of ships outside of these major lanes \cite{marine-traffic}.
 
 \begin{figure}
-\centering
 \includegraphics[width=120mm,natwidth=540,natheight=459]{"./image/AIS_emitters_north_atlantic"}
 \caption[All AIS emitters in the North Atlantic on Wednesday, November 26 2014.]{\label{fig:ais-emitters}Blocks show how many boats were uploading position data via AIS transmitters in a given area. The north Atlantic shows next to no activity in the proposed path, except near the shores. There were over 59,000 worldwide emitters on this day.}
 \end{figure}
 
 \begin{figure}
-\centering
 \includegraphics[width=120mm,natwidth=540,natheight=459]{"./image/AIS-tracking-Q3-2013"}
 \caption[AIS- captured tracking data for Q3 2013]{\label{fig:ais-emitters-amortized}All routing data sent via AIS during the third quarter of 2013.}
 \end{figure}
 
 The proposed design for the obstacle detection with the Sailbot team will incorporate:
-\begin{itemize}
+\indent\begin{itemize}
 \item IR beacon and detector, providing a 2D image for small boat and obstacle detection
 \item Radar module OR a simple radio receiver, to find radio transponders placed on net markers
 \item AIS, an internationally managed system for large boats to communicate positions, headings and speeds
@@ -56,7 +54,6 @@ The signals emitted by any AIS-compliant device are sent as serial data in the N
 The receiver weighs 400g, measures 140mm by 140mm by 35mm, and consumes 720 mW of power during operation. The antenna weighs 114g, and is 122 cm tall. The sailbot can easily support this size and weight, though the high power draw of the receiver means that this device can only be operated sporadically. With an estimated range of 20km, a readout every 20 minutes would be sufficient to identify boats with a relative velocity of 60km/h -- the estimated speed of most cargo vessels of 40 km/h plus the maximum velocity of the sailbot equal to 20 km/h.
 
 \begin{figure}
-\centering
 \includegraphics[width=80mm,natwidth=540,natheight=459]{"./image/ais-a025"}
 \caption[AIS A025 by WeatherDock.]{\label{fig:easyais-a025}AIS A025, an inexpensive AIS receiver manufactured by WeatherDock. The device emits serial signals based on a variant of the NMEA serial communication standard.}
 \end{figure}
@@ -80,9 +77,9 @@ The software connected to the AIS receiver is easy to verify. Given a data strea
 
 Analysis of the infrared obstacle detection software system can be broken down into stages:
 \begin{enumerate}
-\item[Simulation] Send a simulated image to the software
-\item[Staging] Send a real image to the software
-\item[Realtime] Send real images to the software, at the rate we expect to use in the deployed system
+\item Simulation: Send a simulated image to the software
+\item Staging: Send a real image to the software
+\item Realtime: Send real images to the software, at the rate we expect to use in the deployed system
 \end{enumerate}
 
 The simulation stage will determine what shapes and contrast ratios can be detected by a given algorithm. At this stage, we generate an image, pass it to the software, and observe the system of coordinates output by the program. Depending on the feature identification algorithm, we may also need to compare the computed size and distance based on an artificial horizon against the generated image.
@@ -93,7 +90,7 @@ Finally, the realtime scenario is identical to staging, but with a constant stre
 
 We have already aquired IR images of a variety of obstacles in the ocean using an IR camera the Sailbot team borrowed from UBC Professor Noboru Yonemitsu. These images give promising preliminary data that speak to the usefulness of IR imaging. Pictures were taken at the same time and location with both a visible-spectrum camera and an IR camera, shown side-by-side below.
 
-\begin{figure}[H]
+\begin{figure}
 \centering
 \begin{subfigure}{.5\textwidth}
   \centering
@@ -113,7 +110,7 @@ We have already aquired IR images of a variety of obstacles in the ocean using a
  
 The tanker in Fig. \ref{fig:IR comparison of a tanker in the afternoon} was several kilometers away from the beach where the photos were taken, yet is still quite clear in the infrared picture. A hot spot towards the back of the tanker is supposedly where the engine blocks are, but this heat spot may prove very useful in determing boats from noise.
 
-\begin{figure}[H]
+\begin{figure}
 \centering
 \begin{subfigure}{.5\textwidth}
   \centering
@@ -133,7 +130,7 @@ The tanker in Fig. \ref{fig:IR comparison of a tanker in the afternoon} was seve
 
 Even during night, the two tankers on the horizon are easily found by visual inspection of the IR image (Fig. \ref{fig:IR comparison of a tankerat night}). The visual image provides little useful data.
 
-\begin{figure}[H]
+\begin{figure}
 \centering
 \begin{subfigure}{.5\textwidth}
   \centering
@@ -153,8 +150,7 @@ Even during night, the two tankers on the horizon are easily found by visual ins
 
 Logs are also seen to be readily visible in Fig. \ref{fig:IR comparison of a log during the day}, at least in calm waters.
 
-
-\begin{figure}[H]
+\begin{figure}
 \centering
 \begin{subfigure}{.5\textwidth}
   \centering
@@ -182,6 +178,8 @@ The Sailbot has ample room in the hull of the boat for fairly large systems. The
 The most important hardware analysis will focus on power use, and will require us to run all of our detection equipment in the configuration we expect to deploy in the final product while monitoring to ensure that it does not exceed our specification.
 
 Other analysis of the hardware requires that we obtain images from our infrared detector under various lighting and weather conditions. In this stage, we need to categorize the obstacle we observe along with the contrast ratio between the obstacle center and the image background and the frequency at which the obstacle is most visible.
+
+\subsection{\label{sec:method:evaluation-of-alternative-designs}Evaluation of Alternative Designs}
 
 \subsection{\label{sec:method:proposed-verification-procedure}Proposed Verification Procedure}
 
