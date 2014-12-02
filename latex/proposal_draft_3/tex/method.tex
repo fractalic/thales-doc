@@ -80,9 +80,9 @@ The software connected to the AIS receiver is easy to verify. Given a data strea
 
 Analysis of the infrared obstacle detection software system can be broken down into stages:
 \begin{enumerate}
-\item[Simulation] Send a simulated image to the software
-\item[Staging] Send a real image to the software
-\item[Realtime] Send real images to the software, at the rate we expect to use in the deployed system
+\item Simulation: Send a simulated image to the software
+\item Staging: Send a real image to the software
+\item Realtime: Send real images to the software, at the rate we expect to use in the deployed system
 \end{enumerate}
 
 The simulation stage will determine what shapes and contrast ratios can be detected by a given algorithm. At this stage, we generate an image, pass it to the software, and observe the system of coordinates output by the program. Depending on the feature identification algorithm, we may also need to compare the computed size and distance based on an artificial horizon against the generated image.
