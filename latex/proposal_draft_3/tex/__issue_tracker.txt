@@ -2,15 +2,12 @@
 [Notes]
 {STATUS}
 
-{REVISED} Refine deliverables
+
 
 {REVISED} Fill out Software and Testing
 
-{REVISED} fill out executive summary. it sucks, we all know it sucks.
-
 {REVISED} Expand timeline of our work. The work plan and schedule is meant to be a massive section (5pg by the guide)
 
-{REVISED} Formatting and spacing of pictures/ images
 
 
 
@@ -38,6 +35,11 @@ Proposed Design could use an IR and Radar section too- currently only has an AIS
 
 
 
+{CLOSED} Formatting and spacing of pictures/ images
+
+{CLOSED} Refine deliverables
+
+{CLOSED} fill out executive summary. it sucks, we all know it sucks.
 
 {CLOSED}Image of fishing regions
 
