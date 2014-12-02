@@ -8,22 +8,27 @@
 
 {REVISED} fill out executive summary. it sucks, we all know it sucks.
 
+
+Work Ranking from most important to least: (according to Riley)
+
+Expand timeline of our work. The work plan and schedule is meant to be a massive section (5pg by the guide)
+
 IR testing + pictures from the results, showing that Hey guess what we have access to an IR camera. Put pictures in the software section
 
-Need to test IR at sunset (looking to the west, right into the sun)
-
-Expand timeline of our work
-
-Image of fishing regions
+Detail software-based obstacle detection theory (Kalman filters or something)
 
 Detail programming libraries for object identification (eg. OpenCV) and explain suitability for this project.
-
-Detail software-based obstacle detection theory (Kalman filters or something)
 
 Add details of how to build a low-power radar system
 Ditto for infrared
 
-Proposed design could use an IR and Radar section too- currently only has an AIS subsection.
+Need to test IR at sunset (looking to the west, right into the sun)
+
+Image of fishing regions
+
+Proposed Design could use an IR and Radar section too- currently only has an AIS subsection.
+
+
 
 
 
