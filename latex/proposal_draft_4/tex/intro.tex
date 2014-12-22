@@ -1,0 +1,88 @@
+This project is sponsored by the UBC Sailbot team, with the goal of overcoming a significant challenge to autonomous robotic vessels on open water: floating hazards. Debris in the water is difficult to detect, and attempts made to cross the Atlantic ocean with such an autonomous boat have often been sunk by aquatic hazards. Our task is to develop a system capable of determining the location and velocity of floating obstacles, and passing this output to the Sailbot control systems for route determination.
+
+The boat is a 4m scale-up of the 1.5m boat successfully used by the Sailbot team in shorter autonomous navigation challenges. Figure \ref{fig:sailbot} shows this smaller boat.
+
+\begin{figure}
+\includegraphics[width=120mm,natwidth=1203,natheight=627]{"./image/sailbot"}
+\caption[UBC Sailbot.]{\label{fig:sailbot}UBC Sailbot, used in several Sailbot competitions. \cite{ubc-sailbot__image}}
+\end{figure}
+
+The Microtransat Challenge \cite{transat-history} is a project that has been running for several years where participants are required to build an autonomous sailboat capable of sailing from North America to Europe, or in the opposite direction. Previous attempts at the Microtransat challenge have failed mostly through processes other than collision, but the few that have sunk due to collisions have primarily been caught in fishing nets \cite{transat-history}. Anecdotal evidence gathered from fishermen and a sailor who crossed the Atlantic seven times in a schooner tells us that the vast majority of all obstacles the Sailbot may encounter at sea will be found withing a few days' sailing of shore; this is indicated by the Microtransat history, where those boats that failed due to collision or unknown circumstances did so long before crossing into international waters. This is also confirmed by Figure \ref{fig:ais-snapshot}, which shows the density AIS-equipped boats, highest near the shore, at a representative instant in time (November 2014) \cite{marine-traffic}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=150mm,natwidth=792,natheight=313]{"./image/AIS_emitters_north_atlantic_2"}
+\caption[Instantaneous position of AIS vessels.]{\label{fig:ais-snapshot}Representative instantaneous snapshot of the positions of all AIS-equipped vessels. Most are near the shore, and a small cluster of islands in the mid-atlantic.}
+\end{figure}
+
+The UBC Sailbot team will make their attempt in late 2015, following the west to east route, which begins off the coast of Newfoundland, and ends near the Irish coast, as shown in figure \ref{fig:w-e_start-finish}. The boat must sail on its own for 74 kilometers (40 nautical miles) before crossing the start line, eliminating the possibility of towing the boat through the most debris-filled region close to shore.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=150mm,natwidth=667,natheight=264]{"./image/start-finish_map"}
+\caption[Microtransat keypoints.]{\label{fig:w-e_start-finish}Start and finish lines for the West to East route of the Microtransat \cite{transat__w-e_start-finish}. Start line is shown in blue. The boat must sail on its own toward the start line. }
+\end{figure}
+
+\subsection{\label{sec:intro:key-issues}Key Issues}
+The greatest challenge is to reliably produce an accurate model of the boat's surroundings. The first challenge is to test the system with limited ability to test on the water.  Waves will be particularly difficult to test with.  Finally, the solution must be able to examine its surrounding under varied light conditions, with minimal power draw and relying on the processing power of a microcontroller such as a Raspberry Pi or an Arduino.
+
+A robotic vision system requires extensive calibration and offline analysis of the signals it produces. Since testing on the water requires considerable time, it is infeasible to adequately examine the capabilities of the vision system without an on-shore testing environment that closely matches conditions. Such an environment should be able to simulate bright and dark lighting conditions, sections of view that are blocked by other equipment, fog and rain, as well as the motion of the boat.
+
+Also, the processing power of the vision system is physically constrained by the capabilities of Raspberry Pi (or similar) hardware, and further constrained by the need to minimize the energy use of the hardware while examining the environment in realtime. To accomplish this, information provided by sensors may need to be cleverly downsampled, and processing algorithms should be selected based on performance while potentially compromising accuracy for speed.
+
+
+\subsection{\label{sec:intro:existing-solutions}Existing Solutions}
+No systems could be found that solve all the issues this project faces on a scale that's possible in this case. The Autonomous Maritime Navigation Project (AMNP) uses a combination of radar, lidar, and optical cameras for autonomous small-boat navigation \cite{AMN}. However, this system requires more physical space and processing power, and orders of magnitude more electrical power, than Sailbot can afford. For example, even the optical camera used by the AMNP would require selective power cycling and downsampling to accomodate the power that Sailbot can regularly supply, and the LIDAR and RADAR systems use more power than cameras.
+
+In addition, large-scale commercial navigation systems exist but either rely on human interaction for route planning or ignore small obstacles (such as logs) which are of no concern to larger vessels but may damage the Sailbot. These commercial systems also have power requirements that are outside of the Sailbot's reach, as in the case of the Autonomous Maritime Navigation Project's solution. 
+
+No other teams that have attempted the Microtransat challenge have incorporated any obstacle detection systems; many had other, more fundamental physical weaknesses that prevented them from finishing the competition (such as flooding and failure of the electronics compartments, loss of navigation or steering ability, and broken masts) while only a few have been long enough at sea to fail at the hands of nets or other floating obstacles \cite{transat-history}.
+
+
+\subsection{\label{sec:intro:technical-background}Technical Background and Commercial Systems}
+This section gives background on the main detection methods proposed for use with the Sailbot.
+
+
+\subsubsection{\label{sec:intro:technical-background:ir}Infrared Systems}
+Objects emit heat based on their temperature in the form of infrared radiation. Based on its temperature and emissivity, reading the emitted wavelength can give information about the object. Hot objects emit IR radiation at shorter wavelengths than cooler objects; however, the surface material and angle of incidence to the viewer can also change the characteristics of the viewed IR. For example, when looking at an IR image of the ocean, the water (which is a uniform temperature in the ocean) will appear to have a temperature gradient towards the horizon as the angle between the camera, water and sun changes. In addition, an object in the water, such as a log, will stand out in the image even though it's at thermal equilibrium with the water since it has a different emissivity. See the Section \ref{sec:method:proposed-analysis} for images of obstacles and the ocean taken with the Sailbot team's IR camera.
+
+Small boat detection via infrared image analysis has been previously developed for port traffic applications by the Vision Lab of Old Dominion University in Virginia \cite{ODU-boat-IR-detection}. We are in contact with this group to try to acquire their program; however, we will have to modify the code to detect small obtacles as well. Even if the ODU Vision Lab cannot provide us with code, their work proves that the IR detection of boats is possible with a statically mounted camera.
+
+There are several infrared imagers produced by FLIR for nighttime nautical navigation, the smallest being the MD-324 \cite{flir-md324}. This device has a 24$\degree$ by 18$\degree$ field of view, with a 320 by 240 pixel detector. It weighs 1.5 kg, and consumes 4.8 to 12.5 W of power during operation. This model is passive, containing no infrared illumination source, and thus detecting obstacles primarily by their irradiance.
+
+
+\subsubsection{\label{sec:intro:technical-background:radar}Radar Systems}
+Radar (RAdio Detection And Ranging) systems are the standard method of surface-to-surface boat detection in marine applications. Radar systems emit radio waves in short pulses. As the emitted waves hit an object some portion of the wave is reflected back towards the emitter. By reading both the time it takes for the waves to reflect and the frequency of the reflected wave,  such "Doppler radar" detector can determine the position and speed of an object. Similarly, a passive radio detector can look for radar-emitting sources without sending pulses of its own.
+
+Radar systems excel at detecting boats in marine application, as the radio waves reflect quite well off of large boats (and small boats are often equipped with a radar reflector to improve their visibility). Nets are also frequently marked with radio beacons to show local boats their location. Radar systems typically have a minimum detection range that precludes using it to detect small, nearby objects such as logs, but radar would prove invaluable in small boat and net detection if the space and power requirements can be met.
+
+Industry standard marine radar systems such as those made by Raymarine typically cost upwards of \$2000, which is slightly larger than our budget. Raymarine makes radome and open array models, where the open array design includes an exposed rotating emitter bar.
+
+The radome, such as the Raymarine E-Series \cite{raymarine-eseries}, is better suited to small boats, and it has a shorter range more closely matched to our use case. However, such systems are typically optimized for long range detection, with the minimum distance to a detectable object being tens to several hundred metres (assuming the unit is mounted in a plane parallel to the boat deck).
+
+Radomes are frequently used by fishing vessels to monitor the shape of deployed nets based on the positions of the net buoys \cite{furuno__marine-radar-guide}. This shape analysis is usually done by eye, however.
+
+Typical radomes weigh 1.5 to 6 kilograms, and consume 10 to 45 Watts at full output power. Such a system provides horizontal and vertical viewing regions of approximately 70$\degree$.
+
+
+\subsubsection{\label{sec:intro:technical-background:ais}Automatic Identification System}
+The Automatic Identification System (AIS) is an internationally-mandated system that requires all boats larger than 20m to carry an AIS emitter; any boat with an AIS receiver can use this system to get data about all boats in a given vicinity about their size, projected course, type, port of origin, destination, etc  \cite{us-ais-requirements}. Sailbot has purchased an AIS receiver and its implementation is within their power budgeting. An additional emitter module can be considered to give the Sailbot additional visibility to other vessels at sea, although Sailbot currently has no plans to implement this. Specifics about the implementation of the AIS receiver in this project are in the Proposed Method section.
+
+
+\subsection{\label{sec:intro:alternatives}Alternative Strategies}
+Alternative strategies include those which are potentially feasible but are otherwise outside of our scope. 
+
+
+\subsubsection{\label{sec:intro:alternatives:sar}Synthetic Apeture Radar}
+Synthetic Apeture Radar (SAR) is a satellite based mapping tool available in real-time to ocean researchers. It is commonly used by scientists looking to study currents and ocean patterns; for the Sailbot's use, SAR may be helpful to find areas where small ocean debris is likely to accumulate by identifying wave patterns, eddies and convergent currents  \cite{SAR-manual}. Scans have an proportional relationship between temporal lag and resolution, so it may be tricky to find satellites data that scans the appropriate areas with a high enough resolution and low enough time lag to still be useful \cite{Mace}. In addition, SAR data is not trivial to acquire and, without using outside software to analyse the data, could prove to be a large project all on its own to properly implement. SAR would additionally only be useful for passive route-planning, as we won't be able to get data on a resultion that allows us to see objects directly.
+
+\subsubsection{\label{sec:intro:alternatives:lidar}Lidar Systems}
+LIDAR systems are a variant of RADAR that use light close to the visible spectrum (typically in the form of a laser) instead of radio waves to determine the distace to an object. By pointing the laser at a specific location and analyzing the reflected waveform, the distance and speed of the object can be determined. 
+
+A high-performance LIDAR system developed by Velodyne (the Velodyne Lidar Puck VLP-16 \cite{velodyne-vlp16}) selling at a minimum cost of \$8000 is the standard of 3-dimensional autonomous vision. This system offers a viewing area of 360$\degree$ horizontal, 30$\degree$ vertical, with 300 000 measurement points delivered every second, effectively forming a 3D point mesh within the viewport. Velodyne's more expensive and more capable products are used by Google's autonomous vehicles.
+
+Velodyne's least expensive offering is very light, at 600 grams, with dimensions $\varnothing$100mm by 65mm tall, and maximum power draw of ten Watts. Lidar is currently considered an alternative strategy because all available systems seem to be too far outside of our budget.
+
+
+\subsubsection{\label{sec:intro:alternatives:sonar}Sonar}
+Sonar, working on the same principle as radar but with sound waves, is the traditional go-to for underwater detection. It has a relatively long range and provides reliable detection of underwater objects, but is limited to objects that are quite dense and wholly immersed in water (or have a large underwater crosssection). As such, sonar can't be effectively used to detect shallow objects or nets; its only use in Sailbot's application would be for detecting massive boats and tankers, but the AIS system does this much more effectively and at a much larger range.
