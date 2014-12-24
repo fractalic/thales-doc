@@ -53,7 +53,7 @@ The most straightforward method to detect the position and velocity of nearby la
 
 The signals emitted by any AIS-compliant device are sent as serial data in the NMEA (National Marine Electronics Association) 0183 or 2000 format \cite{nmea__standards}. This device uses NMEA 0183, which can be easily decoded in Python using the premade library written by the GPSD project \cite{gpsd__overview}.
 
-The receiver weighs 400g, measures 140mm by 140mm by 35mm, and consumes 720 mW of power during operation. The antenna weighs 114g, and is 122 cm tall. The sailbot can easily support this size and weight, though the high power draw of the receiver means that this device can only be operated sporadically. With an estimated range of 20km, a readout every 20 minutes would be sufficient to identify boats with a relative velocity of 60km/h -- the estimated speed of most cargo vessels of 40 km/h plus the maximum velocity of the sailbot equal to 20 km/h.
+The receiver weighs 400g, measures 140mm by 140mm by 35mm, and consumes 720 mW of power during operation. The antenna weighs 114g, and is 122 cm tall. The sailbot can easily support this size and weight, though the high power draw of the receiver means that this device can only be operated sporadically. With an estimated range of 20km for tall boats and 10km for short boats \cite{mca-uk__mgn324}, a readout every 20 minutes would be sufficient to identify boats with a relative velocity of 60km/h -- the estimated speed of most cargo vessels of 40 km/h plus the maximum velocity of the sailbot equal to 20 km/h.
 
 \begin{figure}
 \centering
