@@ -3,7 +3,6 @@
 {STATUS}
 
 JON'S COMMENTS DRAFT3
-what does offline mean in this context? was this offline just during the development stage? [KEY_ISSUES, offline analysis]
 further info on this project would be useful to include here - what did this applciation do?  and does it lend itself to object deteciton in waves which you will hvae to deal with as well? [INFRARED_SYSTEMS, add more info on port traffic project by ODU]
 and is that an acceptable solution? Also, pricing and availability? [INFRARED_SYSTEMS, flir md-324]
 what was your budget?  never explcitly stated earlier on. [RADAR_SYSTEMS]
@@ -21,6 +20,7 @@ can you get usable equipment at this price? [BUDGET]
 {CLOSED} I assume these are active? [RADAR_SYSTEMS, radio beacons on net markers] (BEN)
 {CLOSED} What are the issues with the AIS system? [KEY_ISSUES] (BEN)
 {CLOSED} but you just said it had a shorter range, didn'tyou? [RADAR_SYSTEMS, unclear wording about use case of radome] (BEN)
+{CLOSED}[removed mention of offline analysis] what does offline mean in this context? was this offline just during the development stage? [KEY_ISSUES, offline analysis] (BEN)
 
 Fill out radio systems section (created to distinguish between radio and radar detection).
 Do we want to have a radio receiver to detect beacons on fishing nets? Can we build this?
