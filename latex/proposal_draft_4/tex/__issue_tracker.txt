@@ -20,7 +20,7 @@ can you get usable equipment at this price? [BUDGET]
 {CLOSED} but you just said it had a shorter range, didn'tyou? [RADAR_SYSTEMS, unclear wording about use case of radome] (BEN)
 {CLOSED}[removed mention of offline analysis] what does offline mean in this context? was this offline just during the development stage? [KEY_ISSUES, offline analysis] (BEN)
 {CLOSED} what was your budget?  never explcitly stated earlier on. [RADAR_SYSTEMS] (BEN)
-{INPROGRESS} what's "Frequency" in terms of area?   I'll go and read the appendix... OK, this is an inverse density, not quite a frequency.  To get frequency, can combine with a term to estimate the rate of the area of coverage by the sailbot, then generate # of interactions per unit time. [OBSTACLES] (BEN)
+{CLOSED} what's "Frequency" in terms of area?   I'll go and read the appendix... OK, this is an inverse density, not quite a frequency.  To get frequency, can combine with a term to estimate the rate of the area of coverage by the sailbot, then generate # of interactions per unit time. [OBSTACLES] (BEN)
 
 Fill out radio systems section (created to distinguish between radio and radar detection).
 Do we want to have a radio receiver to detect beacons on fishing nets? Can we build this?
