@@ -7,7 +7,6 @@ What are the issues with the AIS system? [KEY_ISSUES]
 what does offline mean in this context? was this offline just during the development stage? [KEY_ISSUES, offline analysis]
 further info on this project would be useful to include here - what did this applciation do?  and does it lend itself to object deteciton in waves which you will hvae to deal with as well? [INFRARED_SYSTEMS, add more info on port traffic project by ODU]
 and is that an acceptable solution? Also, pricing and availability? [INFRARED_SYSTEMS, flir md-324]
-
 what was your budget?  never explcitly stated earlier on. [RADAR_SYSTEMS]
 but you just said it had a shorter range, didn'tyou? [RADAR_SYSTEMS, unclear wording about use case of radome]
 what's "Frequency" in terms of area?   I'll go and read the appendix... OK, this is an inverse density, not quite a frequency.  To get frequency, can combine with a term to estimate the rate of the area of coverage by the sailbot, then generate # of interactions per unit time. [OBSTACLES]
@@ -22,6 +21,10 @@ can you get usable equipment at this price? [BUDGET]
 
 {CLOSED} not quite true - the peak wavelength changes, but all objects emit at all wavelengths. [INFRARED_SYSTEMS] (BEN)
 {CLOSED} I assume these are active? [RADAR_SYSTEMS, radio beacons on net markers] (BEN)
+
+Fill out radio systems section (created to distinguish between radio and radar detection).
+Do we want to have a radio receiver to detect beacons on fishing nets? Can we build this?
+Do we want to have a radar receiver (that would detect radar emitted by nearby boats, possibly even those that don't have AIS)?
 
 
 
