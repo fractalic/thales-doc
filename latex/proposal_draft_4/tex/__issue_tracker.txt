@@ -2,6 +2,27 @@
 [Notes]
 {STATUS}
 
+JON'S COMMENTS DRAFT3
+What are the issues with the AIS system? [KEY_ISSUES]
+what does offline mean in this context? was this offline just during the development stage? [KEY_ISSUES, offline analysis]
+not quite true - the peak wavelength changes, but all objects emit at all wavelengths. [INFRARED_SYSTEMS]
+further info on this project would be useful to include here - what did this applciation do?  and does it lend itself to object deteciton in waves which you will hvae to deal with as well? [INFRARED_SYSTEMS, add more info on port traffic project by ODU]
+and is that an acceptable solution? Also, pricing and availability? [INFRARED_SYSTEMS, flir md-324]
+I assume these are active? [RADAR_SYSTEMS, radio beacons on net markers]
+what was your budget?  never explcitly stated earlier on. [RADAR_SYSTEMS]
+but you just said it had a shorter range, didn'tyou? [RADAR_SYSTEMS, unclear wording about use case of radome]
+what's "Frequency" in terms of area?   I'll go and read the appendix... OK, this is an inverse density, not quite a frequency.  To get frequency, can combine with a term to estimate the rate of the area of coverage by the sailbot, then generate # of interactions per unit time. [OBSTACLES]
+all this sounds pretty good, provided that the water doesn't make the wood so wet that the wood then looks like water. [PASSIVE_INFRARED_DETECTORS]
+what was the rationale for not having an AIS emitter?  power consumption? [THE_AIS_SYSTEM]
+given the specific problems related to being on the water, it might not be useful to start with the simulation stage with your work, except for merely determining that the system actually does process an image. [INFRARED_DETECTION_SYSTEM]
+IR camera test was good!   Model # and pricing (and whether this is a reasonable thing to incorporate directly into your project?) [INFRARED_DETECTION_SYSTEM]
+as most of your project looks to involve image processing, it is useful to see what people and resources you can secure to help with those areas. [TECHNICAL_CONTACTS]
+this isn't really a work plan.  How do you plan to divide up the tasks among the group, and what order will you tackle these items? [WORK_PLAN_AND_PROJECT_SCHEDULE]
+dates associated with these items? [MILESTONES]
+can you get usable equipment at this price? [BUDGET]
+
+
+
 
 
 {REVISED} Fill out Software and Testing
