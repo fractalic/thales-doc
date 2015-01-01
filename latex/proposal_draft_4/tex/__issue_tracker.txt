@@ -22,6 +22,7 @@ New issues for draft 4:
 Fill out radio systems section (created to distinguish between radio and radar detection).
 Do we want to have a radio receiver to detect beacons on fishing nets? Can we build this?
 Do we want to have a radar receiver (that would detect radar emitted by nearby boats, possibly even those that don't have AIS)?
+What cables do we need for the AIS system? [Awaiting further info from Ellie regarding which cables they have already]
 
 ----------
 Work ranking from most important to least: (according to Riley)
@@ -49,8 +50,10 @@ Issues persisting from draft 3:
 Closed for draft 4:
 
 {CLOSED} Add info about Ellie's AIS receiver (BEN)
----
-Jon's comments on draft 3
+
++++++++++++
+Jon's comments on draft 3:
+
 {CLOSED} not quite true - the peak wavelength changes, but all objects emit at all wavelengths. [INFRARED_SYSTEMS] (BEN)
 {CLOSED} I assume these are active? [RADAR_SYSTEMS, radio beacons on net markers] (BEN)
 {CLOSED} What are the issues with the AIS system? [KEY_ISSUES] (BEN)
