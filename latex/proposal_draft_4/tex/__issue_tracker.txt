@@ -22,7 +22,6 @@ Fill out radio systems section (created to distinguish between radio and radar d
 Do we want to have a radio receiver to detect beacons on fishing nets? Can we build this?
 Do we want to have a radar receiver (that would detect radar emitted by nearby boats, possibly even those that don't have AIS)?
 Expand ir test rig milestone
-Add OpenCV learning completion date milestone
 Mention OpenCV as our image processing framework
 
 ----------
@@ -52,6 +51,7 @@ Closed for draft 4:
 
 {CLOSED} Add info about Ellie's AIS receiver (BEN)
 {CLOSED} We need to get a VHF cable. (BEN) [We don't have a cable yet, but this thursday (Jan 15) hopefully we can make a plan to get one]
+{CLOSED} Add OpenCV learning completion date milestone (BEN)
 
 +++++++++++
 Jon's comments on draft 3:
