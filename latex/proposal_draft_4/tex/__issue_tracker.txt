@@ -22,7 +22,9 @@ New issues for draft 4:
 Fill out radio systems section (created to distinguish between radio and radar detection).
 Do we want to have a radio receiver to detect beacons on fishing nets? Can we build this?
 Do we want to have a radar receiver (that would detect radar emitted by nearby boats, possibly even those that don't have AIS)?
-What cables do we need for the AIS system? [Awaiting further info from Ellie regarding which cables they have already]
+We need to get a VHF cable.
+Expand ir test rig milestone
+Add OpenCV learning completion date milestone
 
 ----------
 Work ranking from most important to least: (according to Riley)
