@@ -8,7 +8,6 @@ Jon's comments on draft 3:
 further info on this project would be useful to include here - what did this applciation do?  and does it lend itself to object deteciton in waves which you will hvae to deal with as well? [INFRARED_SYSTEMS, add more info on port traffic project by ODU]
 and is that an acceptable solution? Also, pricing and availability? [INFRARED_SYSTEMS, flir md-324]
 all this sounds pretty good, provided that the water doesn't make the wood so wet that the wood then looks like water. [PASSIVE_INFRARED_DETECTORS]
-what was the rationale for not having an AIS emitter?  power consumption? [THE_AIS_SYSTEM]
 given the specific problems related to being on the water, it might not be useful to start with the simulation stage with your work, except for merely determining that the system actually does process an image. [INFRARED_DETECTION_SYSTEM]
 IR camera test was good!   Model # and pricing (and whether this is a reasonable thing to incorporate directly into your project?) [INFRARED_DETECTION_SYSTEM]
 as most of your project looks to involve image processing, it is useful to see what people and resources you can secure to help with those areas. [TECHNICAL_CONTACTS]
@@ -22,7 +21,6 @@ New issues for draft 4:
 Fill out radio systems section (created to distinguish between radio and radar detection).
 Do we want to have a radio receiver to detect beacons on fishing nets? Can we build this?
 Do we want to have a radar receiver (that would detect radar emitted by nearby boats, possibly even those that don't have AIS)?
-We need to get a VHF cable.
 Expand ir test rig milestone
 Add OpenCV learning completion date milestone
 
@@ -52,6 +50,7 @@ Issues persisting from draft 3:
 Closed for draft 4:
 
 {CLOSED} Add info about Ellie's AIS receiver (BEN)
+{CLOSED} We need to get a VHF cable. (BEN) [We don't have a cable yet, but this thursday (Jan 15) hopefully we can make a plan to get one]
 
 +++++++++++
 Jon's comments on draft 3:
@@ -63,6 +62,7 @@ Jon's comments on draft 3:
 {CLOSED}[removed mention of offline analysis] what does offline mean in this context? was this offline just during the development stage? [KEY_ISSUES, offline analysis] (BEN)
 {CLOSED} what was your budget?  never explcitly stated earlier on. [RADAR_SYSTEMS] (BEN)
 {CLOSED} what's "Frequency" in terms of area?   I'll go and read the appendix... OK, this is an inverse density, not quite a frequency.  To get frequency, can combine with a term to estimate the rate of the area of coverage by the sailbot, then generate # of interactions per unit time. [OBSTACLES] (BEN)
+{CLOSED} what was the rationale for not having an AIS emitter?  power consumption? [THE_AIS_SYSTEM] (BEN)
 
 -----------
 Closed before draft 4:

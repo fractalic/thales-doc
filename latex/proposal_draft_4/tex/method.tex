@@ -49,9 +49,9 @@ The proposed design for the obstacle detection with the Sailbot team will incorp
 \end{itemize}
 
 \subsubsection{\label{sec:method:proposed-design:ais}The AIS system}
-The most straightforward method to detect the position and velocity of nearby large boats is with an AIS receiver. Typically, boats of all types (tankers, cargo ships, and passenger vessels) longer than 20m are required to carry an AIS emitter \cite{us-ais-requirements}. We require only a receiver, such as the AMEC CYPHO-150 sold by Milltech Marine (shown in figure \ref{fig:ais__amec-cypho-150}), and a VHF antenna such as the SS-2 sold by GAM Electronics \cite{gam-electronics__ss-2}, connected to our Raspberry Pi, running a copy of the AIS signal decoder from the GPSD project. The AIS receiver has already been purchased by the sailbot team, while we are currently coordinating with the team to choose a VHF antenna.
+The most straightforward method to detect the position and velocity of nearby large boats is with an AIS receiver. Typically, boats of all types (tankers, cargo ships, and passenger vessels) longer than 20m are required to carry an AIS emitter \cite{us-ais-requirements}. We require only a receiver, such as the AMEC CYPHO-150 sold by Milltech Marine (shown in figure \ref{fig:ais__amec-cypho-150}), and a VHF antenna such as the SS-2 sold by GAM Electronics \cite{gam-electronics__ss-2}, connected to our Raspberry Pi, running a copy of the AIS signal decoder from the GPSD project. The AIS receiver has already been purchased by the sailbot team, while we are currently coordinating with the team to choose a VHF antenna. We plan to use only an AIS receiver, no transmitter, in order to keep our power consumption low.
 
-The signals emitted by any AIS-compliant device are sent as serial data in the NMEA (National Marine Electronics Association) 0183 or 2000 format \cite{nmea__standards}. This device uses NMEA 0183, which can be easily decoded in Python using the premade library written by the GPSD project \cite{gpsd__overview}.
+The signals emitted by any AIS-compliant device are sent as serial data in the NMEA (National Marine Electronics Association) 0183 or 2000 format \cite{nmea__standards}. This device uses NMEA 0183, which can be easily decoded in Python using the premade library written by the GPSD project \cite{gpsd__overview}. The CYPHO-150 has an integrated USB cable for connection with a computer.
 
 The receiver weighs 210g, measures 128mm by 88mm by 36mm, and consumes no more than 1500 mW of power during operation. The antenna weighs 114g, and is 122 cm tall. The sailbot can easily support this size and weight, though the high power draw of the receiver means that this device can only be operated sporadically. With an estimated range of 20km for tall boats and 10km for short boats \cite{mca-uk__mgn324}, a readout every 20 minutes would be sufficient to identify boats with a relative velocity of 60km/h -- the estimated speed of most cargo vessels of 40 km/h plus the maximum velocity of the sailbot equal to 20 km/h.
 
@@ -61,7 +61,7 @@ The receiver weighs 210g, measures 128mm by 88mm by 36mm, and consumes no more t
 \caption[AMEC CYPHO-150 AIS receiver.]{\label{fig:ais__amec-cypho-150}CYPHO-150, an inexpensive AIS receiver manufactured by AMEC. The device emits serial signals based on a variant of the NMEA serial communication standard. \cite{milltech__amec-cypho150}}
 \end{figure}
 
-The A025 is a relatively inexpensive device, retailing for about \$500. 
+The CYPHO-150 is a relatively inexpensive device, retailing for about \$200.
 
 
 \subsection{\label{sec:method:proposed-analysis}Proposed Analysis}
