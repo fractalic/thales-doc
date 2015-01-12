@@ -23,6 +23,7 @@ Do we want to have a radio receiver to detect beacons on fishing nets? Can we bu
 Do we want to have a radar receiver (that would detect radar emitted by nearby boats, possibly even those that don't have AIS)?
 Expand ir test rig milestone
 Add OpenCV learning completion date milestone
+Mention OpenCV as our image processing framework
 
 ----------
 Work ranking from most important to least: (according to Riley)
