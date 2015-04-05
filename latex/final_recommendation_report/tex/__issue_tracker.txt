@@ -1,0 +1,90 @@
+(Assigned)
+[Notes]
+{STATUS}
+
+----------
+Jon's comments on draft 3:
+
+further info on this project would be useful to include here - what did this applciation do?  and does it lend itself to object deteciton in waves which you will hvae to deal with as well? [INFRARED_SYSTEMS, add more info on port traffic project by ODU]
+and is that an acceptable solution? Also, pricing and availability? [INFRARED_SYSTEMS, flir md-324]
+all this sounds pretty good, provided that the water doesn't make the wood so wet that the wood then looks like water. [PASSIVE_INFRARED_DETECTORS]
+given the specific problems related to being on the water, it might not be useful to start with the simulation stage with your work, except for merely determining that the system actually does process an image. [INFRARED_DETECTION_SYSTEM]
+IR camera test was good!   Model # and pricing (and whether this is a reasonable thing to incorporate directly into your project?) [INFRARED_DETECTION_SYSTEM]
+as most of your project looks to involve image processing, it is useful to see what people and resources you can secure to help with those areas. [TECHNICAL_CONTACTS]
+this isn't really a work plan.  How do you plan to divide up the tasks among the group, and what order will you tackle these items? [WORK_PLAN_AND_PROJECT_SCHEDULE]
+dates associated with these items? [MILESTONES]
+can you get usable equipment at this price? [BUDGET]
+
+----------
+New issues for draft 4:
+
+Fill out radio systems section (created to distinguish between radio and radar detection).
+Do we want to have a radio receiver to detect beacons on fishing nets? Can we build this?
+Do we want to have a radar receiver (that would detect radar emitted by nearby boats, possibly even those that don't have AIS)?
+Expand ir test rig milestone
+Mention OpenCV as our image processing framework
+
+----------
+Work ranking from most important to least: (according to Riley)
+
+Detail software-based obstacle detection theory (Kalman filters or something)
+Detail programming libraries for object identification (eg. OpenCV) and explain suitability for this project.
+
+Add details of how to build a low-power radar system
+Add details of how to build a low-power infrared system
+
+Proposed Design could use an IR and Radar section too- currently only has an AIS subsection.
+
+----------
+Issues persisting from draft 3:
+
+{NOT NEEDED?}Need to test IR at sunset (looking to the west, right into the sun)
+{NOT NEEDED?} Actually, a lot of Objectives needs to be condensed and put earlier (background?) (Riley- I think we can leave this alone) 
+{NOT NEEDED?} Background: say what we need to detect, why, and what we don't need to detect (dont need is currently in Objectives)
+{NOT NEEDED?} Move details out of Project objectives, just have summaries there.
+
+{REVISED} Fill out Software and Testing
+{REVISED} Expand timeline of our work. The work plan and schedule is meant to be a massive section (5pg by the guide) (Not bad, we have something there now, but its not great)
+
+-----------
+Closed for draft 4:
+
+{CLOSED} Add info about Ellie's AIS receiver (BEN)
+{CLOSED} We need to get a VHF cable. (BEN) [We don't have a cable yet, but this thursday (Jan 15) hopefully we can make a plan to get one]
+{CLOSED} Add OpenCV learning completion date milestone (BEN)
+
++++++++++++
+Jon's comments on draft 3:
+
+{CLOSED} not quite true - the peak wavelength changes, but all objects emit at all wavelengths. [INFRARED_SYSTEMS] (BEN)
+{CLOSED} I assume these are active? [RADAR_SYSTEMS, radio beacons on net markers] (BEN)
+{CLOSED} What are the issues with the AIS system? [KEY_ISSUES] (BEN)
+{CLOSED} but you just said it had a shorter range, didn'tyou? [RADAR_SYSTEMS, unclear wording about use case of radome] (BEN)
+{CLOSED}[removed mention of offline analysis] what does offline mean in this context? was this offline just during the development stage? [KEY_ISSUES, offline analysis] (BEN)
+{CLOSED} what was your budget?  never explcitly stated earlier on. [RADAR_SYSTEMS] (BEN)
+{CLOSED} what's "Frequency" in terms of area?   I'll go and read the appendix... OK, this is an inverse density, not quite a frequency.  To get frequency, can combine with a term to estimate the rate of the area of coverage by the sailbot, then generate # of interactions per unit time. [OBSTACLES] (BEN)
+{CLOSED} what was the rationale for not having an AIS emitter?  power consumption? [THE_AIS_SYSTEM] (BEN)
+
+-----------
+Closed before draft 4:
+
+{CLOSED} Formatting and spacing of pictures/ images
+{CLOSED} Refine deliverables
+{CLOSED} fill out executive summary. it sucks, we all know it sucks.
+{CLOSED}Image of fishing regions
+{CLOSED} IR testing + pictures from the results, showing that Hey guess what we have access to an IR camera. Put pictures in the software section
+{CLOSED} lost fishing nets (abandoned marine debris) is not worth the effort. Too rare. The ocean is big, we are small.
+{CLOSED} Table 1: obstacles and risk may need to be moved (physically moved down on the page, but this needs to be done once the text is more finalized) [BEN>> moved to theory section] (Ben)
+{CLOSED} Find VHF radio for AIS (Ben)
+{CLOSED} Existing Solutions section isn't meant for what Sailbots' done- it's meant for what outside solutions are there. (Riley- CLOSED)
+{CLOSED} Add to background- info on what the challenge is, what happened to previous attempts, what Sailbot is and their projects. Condense all this here. (Riley- seems CLOSED to me)
+{CLOSED} Make it clear that we aren't doing avoidance, only detection. Early on. (Ben)
+{CLOSED} Existing Solutions and State of the Art Commercial Systems could potentially be merged. What's the difference?
+[Ben>> Initially I would have said that an "existing solution" is some system of sensors and software that another group used to autonomously avoid obstacles. Since we haven't found anything like that, I'd say there isn't a difference.] (Riley- I merged the two. There really isn't much to say there. I'll call it CLOSED)
+{CLOSED} would LIDAR actually work? Really move it to Alternatives, since its now outside of both our power and price ranges. [BEN>> agree] (Riley- CLOSED)
+{CLOSED} AIS and SAR defined earlier- in technical background. By the time they finish the background, there should be no questions as to what each system is/ how it works.
+[BEN>> I think it's best to provide an overview in the technical background. Something like "AIS is a network of radio beacons that ships use to extract information from each other". Then in the method section "AIS communicates over the NMEA protocol, and we'll need some serial plug with connections to our RPi or Arduino". This might be exactly what you wrote ;)] (Riley- agree. CLOSED)
+{CLOSED} Focus technical background on methods we'll use, move others to Alternatives. (Riley)
+{CLOSED} SAR is a bonus objective, totally not needed but would be nice to have. Downgrade other options (remove passive acoustic) [BEN>> I think we need to strongly differentiate between possible devices and our actual method. The background should contain a comprehensive list of all possible methods.](Riley- CLOSED)
+{CLOSED} Image of shipping routes (Riley- added to Proposed Method)
+{CLOSED} Sailbot has IR camera and AIS. Unless these devices don't meet our requirements or we decide to add radar/sonar, we don't need to order anything. (Riley- I think this is clear now)

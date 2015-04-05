@@ -1,0 +1,194 @@
+\subsection{\label{sec:method:theory}Theory}
+There are numerous potential methods of detecting floating and undersea obstacles. Though these have rarely been applied to autonomous detection of objects, the functionality and expected usability of each system is discussed below. Also, general detection principles applicable to many detection schemes are discussed.
+
+\subsubsection{\label{sec:method:theory:obstacles}Obstacles}
+To determine the most important elements of our design, it is important to understand the magnitude of the risk posed by various types of floating hazards. Some of these hazards are detailed in Table \ref{tab:obstacles}, where it becomes apparent that detecting large boats using AIS is the most critical piece of our obstacle detection scheme. The derivation of the frequency estimates is detailed in Appendix, and the results are listed as inverse frequency in units of n days per one encounter \ref{app:obstacle-frequency}.
+
+\begin{table}
+\caption{\label{tab:obstacles}Obstacles and risk}
+\begin{tabular}{c|c|c|c}
+
+Obstacle & Location & Inverse Frequency & Damage\\[0.6cm]
+\hline
+
+Shipping vessels & Entire route & 4 days & Severe \\
+Icebergs & Entire route & 400 days & Severe \\
+Logs & Entire route, drawn to gyres & 40 days & Moderate \\
+
+\end{tabular}
+\end{table}
+
+\subsubsection{\label{sec:method:theory:passive-infrared-detectors}Passive infrared detectors}
+Passive IR detectors examine their surroundings according to temperature. Given no IR emission from a beacon, the intensity of radiation emitted by an object depends on its temperature and emissivity.
+
+Low-floating objects will typically have a temperature near the temperature of the water, however they are visible if their emissivity is different from that of water. Liquid water has an emissivity of $.90$ to $.95$; ice has an emissivity of $.95$ to $1$, making it appear white in an IR image against a water background; and wood has an emissivity of $.75$ to $.95$, making it appear black against water. \cite{optotherm-emisstable}
+
+
+\subsection{\label{sec:method:proposed-design}Proposed Design}
+The design that will be most likely to see all obstacles at appropriate distances will rely on AIS for large boats, IR for small boats and floating debris, and a small radar or radio receiver for nets. AIS is an easily implemented solution that relies solely on external data (no on-board sensors) and coding for positioning. The AIS module has already been purchased by the Sailbot team, and so its price and power budget are already taken care of - the module simply needs to be implemented. The radio receiver needs to identify the direction of a radio source to find a net marker, and avoiding that area should keep the boat away from any nets. The IR detection will be the most difficult of the individual systems to test and implement, and the true challenge will be integrating all three systems to appropriately manage data from each source.
+
+Most of the teams effort will be directed towards implementing the IR camera. From our preliminary testing it seems that the IR camera will be the primary detection method, as it is able to clearly see boats at a large range, small floating obstacles at medium range, and the nighttime detection is excellent. Further, while AIS is useful around the coast, for nearly the full duration of the Sailbot's trip from the start to the finish line any boat encounters will be exceedingly rare. Images from an online AIS tracking source, shown below, shows this. Further, tracking all journeys across the north Atlantic during the third quarter of 2013 (the same time frame as the Sailbot will launch in 2015) shows the most common shipping lanes and the rarity of ships outside of these major lanes \cite{marine-traffic}.
+
+\begin{figure}
+\centering
+\includegraphics[width=120mm,natwidth=540,natheight=459]{"./image/AIS_emitters_north_atlantic"}
+\caption[All AIS emitters in the North Atlantic on Wednesday, November 26 2014.]{\label{fig:ais-emitters}Blocks show how many boats were uploading position data via AIS transmitters in a given area. The north Atlantic shows next to no activity in the proposed path, except near the shores. There were over 59,000 worldwide emitters on this day.}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=120mm,natwidth=540,natheight=459]{"./image/AIS-tracking-Q3-2013"}
+\caption[AIS- captured tracking data for Q3 2013]{\label{fig:ais-emitters-amortized}All routing data sent via AIS during the third quarter of 2013.}
+\end{figure}
+
+The proposed design for the obstacle detection with the Sailbot team will incorporate:
+\begin{itemize}
+\item IR beacon and detector, providing a 2D image for small boat and obstacle detection
+\item Radar module OR a simple radio receiver, to find radio transponders placed on net markers
+\item AIS, an internationally managed system for large boats to communicate positions, headings and speeds
+\end{itemize}
+
+\subsubsection{\label{sec:method:proposed-design:ais}The AIS system}
+The most straightforward method to detect the position and velocity of nearby large boats is with an AIS receiver. Typically, boats of all types (tankers, cargo ships, and passenger vessels) longer than 20m are required to carry an AIS emitter \cite{us-ais-requirements}. We require only a receiver, such as the AMEC CYPHO-150 sold by Milltech Marine (shown in figure \ref{fig:ais__amec-cypho-150}), and a VHF antenna such as the SS-2 sold by GAM Electronics \cite{gam-electronics__ss-2}, connected to our Raspberry Pi, running a copy of the AIS signal decoder from the GPSD project. The AIS receiver has already been purchased by the sailbot team, while we are currently coordinating with the team to choose a VHF antenna. We plan to use only an AIS receiver, no transmitter, in order to keep our power consumption low.
+
+The signals emitted by any AIS-compliant device are sent as serial data in the NMEA (National Marine Electronics Association) 0183 or 2000 format \cite{nmea__standards}. This device uses NMEA 0183, which can be easily decoded in Python using the premade library written by the GPSD project \cite{gpsd__overview}. The CYPHO-150 has an integrated USB cable for connection with a computer.
+
+The receiver weighs 210g, measures 128mm by 88mm by 36mm, and consumes no more than 1500 mW of power during operation. The antenna weighs 114g, and is 122 cm tall. The sailbot can easily support this size and weight, though the high power draw of the receiver means that this device can only be operated sporadically. With an estimated range of 20km for tall boats and 10km for short boats \cite{mca-uk__mgn324}, a readout every 20 minutes would be sufficient to identify boats with a relative velocity of 60km/h -- the estimated speed of most cargo vessels of 40 km/h plus the maximum velocity of the sailbot equal to 20 km/h.
+
+\begin{figure}
+\centering
+\includegraphics[width=80mm,natwidth=300,natheight=300]{"./image/ais__amec-cypho-150"}
+\caption[AMEC CYPHO-150 AIS receiver.]{\label{fig:ais__amec-cypho-150}CYPHO-150, an inexpensive AIS receiver manufactured by AMEC. The device emits serial signals based on a variant of the NMEA serial communication standard. \cite{milltech__amec-cypho150}}
+\end{figure}
+
+The CYPHO-150 is a relatively inexpensive device, retailing for about \$200.
+
+
+\subsection{\label{sec:method:proposed-analysis}Proposed Analysis}
+It is important to verify the correct functioning both of the hardware sensors and computation platform, and of the software analysis system. Beyond functionality, further examination will determine the limits of the capabilities of the device.
+
+The Sailbot team has previously competed with small sailboats. They have a small sailboat (approximately 3 feet long) that's completely built and thoroughly tested. We have full access to this boat and freedom to modify it to mount various detection systems in order to perform scale testing on it. This small boat will serve as a robust testing mechanism to try different orientations and combinations of systems.
+
+\subsubsection{\label{sec:method:proposed-analysis:software}Software}
+Software can be examined at a basic level by following the principles of test driven development, and at a higher level by providing simulated or offline signals to the program. The integration of the various systems used in the final solution can be tested in a pool using the current, small Sailbot.
+
+\subsubsection{\label{sec:method:proposed-analysis:ais-software}AIS Software}
+
+We will be using an AIS decoder produced in the open source GPSD library. Given a data stream sent by our AIS receiver, we need to check that the coordinates of boats that we decode match the coordinates provided by the included AMEC decoder software. The CYPHO-150 can be connected to the AMEC software using the included USB cable.
+
+\subsubsection{\label{sec:method:proposed-analysis:infrared-software}Infrared detection software}
+
+Analysis of the infrared obstacle detection software system can be broken down into stages:
+\begin{enumerate}
+\item Simulation: Send a simulated image to the software
+\item Staging: Send a real image to the software
+\item Realtime: Send real images to the software, at the rate we expect to use in the deployed system
+\end{enumerate}
+
+The simulation stage will determine what shapes and contrast ratios can be detected by a given algorithm. At this stage, we generate an image, pass it to the software, and observe the system of coordinates output by the program. Depending on the feature identification algorithm, we may also need to compare the computed size and distance based on an artificial horizon against the generated image.
+
+In the staging step, we send real images obtained using our hardware to our software system. We again check for correct computation of coordinates, size and distance of image features, under a variety of lighting conditions including daylight, night, and sunset.
+
+Finally, the realtime scenario is identical to staging, but with a constant stream of images. This step is to ensure that images can be fully processed before the next image is sent.
+
+We have already aquired IR images of a variety of obstacles in the ocean using an IR camera the Sailbot team borrowed from UBC Professor Noboru Yonemitsu. These images give promising preliminary data that speak to the usefulness of IR imaging. Pictures were taken at the same time and location with both a visible-spectrum camera and an IR camera, shown side-by-side below.
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{"./image/jericho-evening-tanker-visible"}
+  \caption{Cell phone camera}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{"./image/jericho-evening-tanker-ir"}
+  \caption{IR camera}
+  \label{fig:sub2}
+\end{subfigure}
+\caption{A tanker at several km range taken at Jericho beach in the afternoon}
+\label{fig:IR comparison of a tanker in the afternoon}
+\end{figure}
+ 
+The tanker in Fig. \ref{fig:IR comparison of a tanker in the afternoon} was several kilometers away from the beach where the photos were taken, yet is still quite clear in the infrared picture. A hot spot towards the back of the tanker is supposedly where the engine blocks are, but this heat spot may prove very useful in determining boats from noise.
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{"./image/jericho-night-tankers-visible"}
+  \caption{Cell phone camera}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{"./image/jericho-night-tankers-ir"}
+  \caption{IR camera}
+  \label{fig:sub2}
+\end{subfigure}
+\caption{A tanker at several km range taken at Jericho beach during the night}
+\label{fig:IR comparison of a tanker at night}
+\end{figure}
+
+Even during night, the two tankers on the horizon are easily found by visual inspection of the IR image (Fig. \ref{fig:IR comparison of a tankerat night}). The visual image provides little useful data.
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{"./image/jericho-day-log-visible"}
+  \caption{Cell phone camera}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{"./image/jericho-day-log-ir"}
+  \caption{IR camera}
+  \label{fig:sub2}
+\end{subfigure}
+\caption{A log at a 30ft range, taken at Jericho during the day}
+\label{fig:IR comparison of a log during the day}
+\end{figure}
+
+Logs are also seen to be readily visible in Fig. \ref{fig:IR comparison of a log during the day}, at least in calm waters.
+
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{"./image/steveston-noon-fishing-visible"}
+  \caption{Cell phone camera}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{"./image/steveston-noon-fishing-ir"}
+  \caption{IR camera}
+  \label{fig:sub2}
+\end{subfigure}
+\caption{A fishing boat at Steveston }
+\label{fig:IR comparison of a fishing boat in the afternoon}
+\end{figure}
+
+The metal/ carbon-fibre fishing boat in Fig. \ref{fig:IR comparison of a fishing boat in the afternoon} is also clearly identifiable from its surroundings; there is a large contrast between the boat, the water and the horizon. Mapping the gradient and finding closed contours should provide a very solid starting point for determining where obstacles lie within any of these provided IR images, and such a technique will likely be the starting point for our IR analysis. 
+
+For more information on general software testing methodology, refer to Appendix \ref{app:software-testing-methodology}.
+
+\subsubsection{\label{sec:method:proposed-analysis:hardware}Hardware}
+The Sailbot has ample room in the hull of the boat for fairly large systems. These systems must be robust, immune to shaking, and waterproof. Marine-grade cables that are standard use by the Sailbot team will serve as the primary connections from the sensors to the black-box detection electronics.
+
+The most important hardware analysis will focus on power use, and will require us to run all of our detection equipment in the configuration we expect to deploy in the final product while monitoring to ensure that it does not exceed our specification.
+
+Other analysis of the hardware requires that we obtain images from our infrared detector under various lighting and weather conditions. In this stage, we need to categorize the obstacle we observe along with the contrast ratio between the obstacle center and the image background and the frequency at which the obstacle is most visible.
+
+\subsection{\label{sec:method:proposed-verification-procedure}Proposed Verification Procedure}
+
+Hardware systems should be tested in isolation to verify that they produce the correct output for various inputs. Then the systems can be coupled together, and software control added.
+
+After analysis of the hardware and software, as described in Section \ref{sec:method:proposed-analysis}, we will run our final series of tests, or "online analysis", which sends images to the software with the hardware mounted on the boat as it will be in the final implementation. In this step, we check the ability of the Sailbot to navigate around perceived hazards, using the navigation system provided by the Sailbot team.
+
+The correct functioning of the software is confirmed if the Sailbot can be seen to navigate away from pre-placed obstacles of various types, under various lighting conditions.
+
+Finally, the power draw of the sensors and Raspberry Pi should be monitored during the obstacle analysis and avoidance process to ensure conformance with our requirements.
