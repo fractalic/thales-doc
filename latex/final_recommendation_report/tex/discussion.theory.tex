@@ -10,22 +10,24 @@ The most applicable research we found to our work with the Lepton infrared camer
 \subsubsection{\label{sec:discussion:theory:detectionsoftware}Software}
 Acquiring a usable image is only the first step in object detection. In order to train the software to see the objects in the frame, we apply many of the basic algorithms that the human brain uses to identify and partition objects. Our eyes are developed to look for sharp lines and movement against a background; much of the work in machine vision focuses on image segmentation and object tracking, similarly. 
 
-In the ideal detection case, we would see a large boat on still water, with a clear sky. In this ideal image, the only sharp lines are those which define the boat and the horizon, at which point linefinding is easy and detection is trivial. However, the imaging conditions that Sailbot will experience are sure to be far from ideal; waves create varying angles of incidence, meaning a varying IR intensity across uniform-temperature water, the boats may be small and far away, and the Sailbot won't ever be still. This means that image smoothing must occur; filters must be in place to help segment the image and discard noise. While basic smoothing can take place as simple blurring (see Figure \ref{fig:median_blur}, an example from the O'Rielly OpenCV textbook on computer vision), simple techniques such as mean or median blurring (where the pixel value is set to the mean/median of those around it) is a highly lossy technique. Guassian smoothing (or bilateral smoothing, which is guassian with a bias towards similarly-coloured pixels) is much better at preserving edges while smoothing low frequency noise (see Figure \ref{fid:bilateral_smooth}).
+In the ideal detection case, we would see a large boat on still water, with a clear sky. In this ideal image, the only sharp lines are those which define the boat and the horizon, at which point linefinding is easy and detection is trivial. However, the imaging conditions that Sailbot will experience are sure to be far from ideal; waves create varying angles of incidence, meaning a varying IR intensity across uniform-temperature water, the boats may be small and far away, and the Sailbot won't ever be still. This means that image smoothing must occur; filters must be in place to help segment the image and discard noise. While basic smoothing can take place as simple blurring (see Figure \ref{fig:blurring:sub1}, an example from the O'Rielly OpenCV textbook on computer vision), simple techniques such as mean or median blurring (where the pixel value is set to the mean/median of those around it) is a highly lossy technique. Guassian smoothing (or bilateral smoothing, which is guassian with a bias towards similarly-coloured pixels) is much better at preserving edges while smoothing low frequency noise (see Figure \ref{fig:blurring:sub2}).
 
 \begin{figure}
 \centering
-begin{subfigure}{.65\textwidth}
+\begin{subfigure}{0.4\textwidth}
  \centering
- \includegraphics[width=80mm,natwidth=300,natheight=300]{"./image/median_blurring"}
+ \includegraphics[width=0.95\textwidth]{"./image/median_blurring"}
  \caption{Blurring by taking the median of the surrounding pixels.}
- \label{fig:median_blur}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=80mm,natwidth=300,natheight=300]{"./image/bilateral_smoothing"}
-\caption{Bilateral smoothing; applying a weighted guassian smoothing.}
-\label{fig:bilateral_smooth}
+ \label{fig:blurring:sub1}
+\end{subfigure}
+\begin{subfigure}{0.4\textwidth}
+ \centering
+ \includegraphics[width=0.95\textwidth]{"./image/bilateral_smoothing"}
+ \caption{Bilateral smoothing; applying a weighted guassian smoothing.}
+ \label{fig:blurring:sub2}
+\end{subfigure}
+\caption{Two blurring techniques to cut down noise}
+\label{fig:blurring}
 \end{figure}
 
 
