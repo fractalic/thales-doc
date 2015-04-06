@@ -7,6 +7,22 @@
 \usepackage[justification=centering]{caption}
 \usepackage{enumerate}
 
+% Adjust list layouts.
+\let\olddescription\description
+\renewcommand{\description}{
+  \olddescription
+  \setlength\itemsep{0em}
+  \setlength\parskip{0em}
+  \setlength\parsep{0em}
+}
+\let\olditemize\itemize
+\renewcommand{\itemize}{
+  \olditemize
+  \setlength\itemsep{0em}
+  \setlength\parskip{0em}
+  \setlength\parsep{0em}
+}
+
 % Usual (decimal) section numbering
 \renewcommand{\thesection}{\arabic{section}.\arabic{subsection}}
 \renewcommand{\thesubsection}{\thesection}

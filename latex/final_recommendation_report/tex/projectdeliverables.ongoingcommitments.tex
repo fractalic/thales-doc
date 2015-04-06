@@ -1,7 +1,18 @@
 % This is a subsection: use only subsubsections in this file.
 
 \iffalse
+Guideline:
+Ongoing commitments by team members.
+This section explicitly states any ongoing commitments that the team members have made to the project after submitting the final report. This list is expected to be made in consultation with the Project Sponsor. It is desirable to make the items in this section as specific as possible, and to include a target end-date for the commitment.
+
 Commitment notes:
 Riley: final housing design, wind tunnel testing of wiper [End of April]
 Kiel: join the team, IMU processing software (map imu data to pitch and roll, find gravity to zero-out gyro) [End of April for IMU]
 \fi
+
+\begin{description}
+\item[Housing design with water wiper] This is a modification of the existing Test Rig housing including a small wiper to clear the window in front of the infrared camera lens. The wiper is actuated by air moving over the housing, and will be tested in a wind tunnel. \textbf{Expected completion: May 1, 2015.}
+\item[Final housing] This is a housing that can be mounted on the autonomous Sailbot during its transatlantic crossing. \textbf{Expected completion: August 1, 2015.}
+\item[IMU decoder] Written in Python or C++, this piece of code will communicate with an inertial motion unit (IMU) to extract and decode the pitch and roll of the Sailbot in real time. \textbf{Expected completion: May 1, 2015.}
+\item[Horizon predictor] Written in Python or C++, this function will accept pitch and roll data from the IMU decoder, and identify the set of pixels on the image from the infrared camera where the horizon should lie. \textbf{Expected completion: April 10, 2015.}
+\end{description}
