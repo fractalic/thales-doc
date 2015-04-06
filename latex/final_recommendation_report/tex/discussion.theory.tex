@@ -66,3 +66,22 @@ After reducing noise, increasing constrast and thresholding help to segment the 
 \label{fig:hist_equil}
 \end{figure}
 
+The next step in most traditional object detection algorithms is applying a thresholding technique; blocking off all pixels less than a certain intensity value is an easy way to prioritize close, large, easy-to-identify objects. Particularily with infrared imaging, the pixel intensity given off by an object is proportional to it's heat; in the ocean, boats are drastically warmer than the ocean surrounding them. In addition, a ceiling threshold helps to eliminate the sun as a potential obstacle, at the recorded intensity of the sun is orders of magnitude higher than those of most any terrestrial objects. Rather than apply a static threshold, as the recorded pixel values can vary by large amounts depending on the time of day, position of the sun, cloud cover, and fog, an adaptive threshold is much more useful. Adaptive thresholds are "smarter" thresholds, given that they take into account the overall pixel intensities in the image and apply a differing threshold to each part of the image based on it's surroundings. Adaptive thresholds excel at accounting for lighting differences, but in our application they can help account for sun position and waves. Figure \ref{fig:thresh_comp} illustrates the benefit of adaptive thresholds over traditional binary thresholds.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.6\textwidth]{"./image/threshold_comparisons"}
+\caption{Simple vs Adaptive Thresholding.}
+\label{fig:thresh_comp}
+\end{figure}
+
+Finally, after as much extraneous information has been removed as possible, edge detection algorithms can be applied to find areas of complex geometry in the image. The most commonplace edge detection algorithm is Canny edge detection, which maps the first and second derivatives in both horizontal and vertical directions over the image before looking for local maxima and minima; by pairing these extrema with a gradient analysis and applying a threshold to filter for high rates of change, the Canny algorithm is very effective at finding edges. In the Sailbot case, we can use Canny edge detection on our filtered images to identify areas with many edges. 
+\begin{figure}
+\centering
+\includegraphics[width=0.6\textwidth]{"./image/canny"}
+\caption{Canny edge detection.}
+\label{fig:canny}
+\end{figure}
+
+High concentrations of edges combined with lines at sharp angles to the horizon have a high likelihood to be an obstacle, while very rarely being triggered by ocean waves or other noise. Since obtacles prove to be persistent where noise doesn't trip the algorithm often enough, weighting an obstacle's likelihood of existence by it's frequency of appearance is a strong method to filter out false positives while limiting the chance of false negatives.
+
