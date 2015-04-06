@@ -30,4 +30,13 @@ In the ideal detection case, we would see a large boat on still water, with a cl
 \label{fig:blurring}
 \end{figure}
 
+The FLIR Lepton camera we're using for this project is a very low resultion camera- only 80x60 in a 50 degree field of view- so smoothing is not really needed; each pixel covers several square feet of most objects it's looking at, so the images look like theyve been through a heavy mean filtering process already (Figure \ref{fig:buoy_ex}. However, should the Sailbot upgrade to a higher resultion camera (as is being currently considered) then smoothing algorithms while play a more important role in our postprocessing. 
 
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{"./image/buoy_example"}
+\caption{Buoy at 50 meters, no smoothing or processing}
+\label{fig:buoy_ex}
+\end{figure}
+
+After reducing noise, 
