@@ -34,9 +34,35 @@ The FLIR Lepton camera we're using for this project is a very low resultion came
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\textwidth]{"./image/buoy_example"}
+\includegraphics[width=0.4\textwidth]{"./image/buoy_example"}
 \caption{Buoy at 50 meters, no smoothing or processing}
 \label{fig:buoy_ex}
 \end{figure}
 
-After reducing noise, 
+After reducing noise, increasing constrast and thresholding help to segment the image. In scenes such as infrared pictures taken during rain or through heavy fog, much of the IR light will be scattered resulting in washed-out pictures (see Figure \ref{fig:washedOut} taken at midafternoon on a foggy day of testing in Ucluelet). When the obstacles are close, the contrast in the background is not a problem as the object sticks out quite obviously. However, far-off objects will have less contrast, where applying a histogram equilization helps to increase the range of pixels used. Figure \ref{fig:hist_equil} illustrates the effect that the histogram equilization can have; by mapping the histogram of pixel instensity values to a cumulative gaussian distribution, the full range of pixels can be utilized. In scenes with little or no information (such as that in Figure \ref{fig:washedOut}) gain no net benefit from increasing contrast.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.4\textwidth]{"./image/washed-out_example"}
+\caption{Boat at 100m to 150m through fog}
+\label{fig:washedOut}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{subfigure}{0.4\textwidth}
+ \centering
+ \includegraphics[width=0.95\textwidth]{"./image/hist_equil_1"}
+ \caption{Low contrast example.}
+ \label{fig:hist_equil:sub1}
+\end{subfigure}
+\begin{subfigure}{0.4\textwidth}
+ \centering
+ \includegraphics[width=0.95\textwidth]{"./image/hist_equil_2"}
+ \caption{Post-processing.}
+ \label{fig:hist_equil:sub2}
+\end{subfigure}
+\caption{Increasing contrast with histogram equilization.}
+\label{fig:hist_equil}
+\end{figure}
+
