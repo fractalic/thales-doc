@@ -1,1 +1,40 @@
 % This is a subsection: use only subsubsections in this file.
+
+\iffalse
+This is a direct follow-up from the details contained in the Project Proposal section. The list can describe the final state of each item in the list, any differences between the original deliverables and the actual deliverables, and in what form the Project Sponsor can expect to receive the Deliverable from the Team Members.
+\fi
+
+
+\begin{description}
+\setlength\itemsep{-1em}
+\setlength\parsep{1em}
+\setlength\parskip{-1.2em}
+\item[AIS signal processor (receiver, connectors, software library)] \hfill
+\begin{itemize}
+\setlength\itemsep{-1.5em}
+\item written in Python
+\item interpret data from AIS receiver
+\item report position and speed of nearby vessels to Sailbot navigation software
+\end{itemize}
+
+\item[IR signal processor (camera, connectors, software library)] \hfill
+\begin{itemize}
+\setlength\itemsep{-1.5em}
+\item written in Python
+\item capture IR images ahead of Sailbot
+\item detect and track features in image
+\item determine position and speed of features in image
+\item report position and speed of detected objects to Sailbot navigation software
+\end{itemize}
+
+\item[Report on performance characteristics for all systems] \hfill
+\begin{itemize}
+\setlength\itemsep{-1.5em}
+\item detection distance
+\item detection likelihood
+\item best weather conditions for operating
+\item power draw
+\item input data required from Sailbot sensors
+\item frequency of data output
+\end{itemize}
+\end{description}
