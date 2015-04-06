@@ -9,6 +9,7 @@
 *.synctex.gz
 *.toc
 *.bib
+*.tmp
 
 # Ignore crash info from Sublime Text
 *.dmp
