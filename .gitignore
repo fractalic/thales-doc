@@ -10,6 +10,7 @@
 *.toc
 *.bib
 *.tmp
+*.tex-secret
 
 # Ignore crash info from Sublime Text
 *.dmp
