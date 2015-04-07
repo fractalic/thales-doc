@@ -1,1 +1,17 @@
-% This is a subsection: use only subsubsections in this file.
+The performance of the Lepton infrared camera was the largest unknown when starting this project, so much of our testing methods revolved around rapidly implementing basic functionality, testing, then adding additional functionality with each testing iteration. Several large testing excursions were used to try to implement as much as possible in one integrated system.
+
+
+\subsubsection{\label{sec:discussion:testing:testrig1}Test Rig 1.0}
+
+Test Rig 1.0 was the first testing excursion of the term. The goal of this testing round was to implement basic Lepton functionality (image capture, scaling from 16-bit images to the more standard 8-bit, and video encoding) along with the communication protocols so that the Raspberry Pi in the test rig's box wirelessly backed up the data to another computer on board. The Test Rig 1.0 was then taken to Ucluelet over Reading Week (February 15-19, 2015). Brian Congdon of Subtidal Adventures, a whale-watching company in Ucluelet, took us out for close to 8 hours of total time at sea over two days, taking us on close drive-bys of bouys, logs, boats and marine life. With the test rig strapped to the front of the boat, this outing gave us a massive amount of invaluable footage, guiding the development of Test Rig 2.0 and giving insight into the final rig design. Results from this outing, as well as the others, will be shown and discussed in the Results section of this paper.
+
+
+\subsubsection{\label{sec:discussion:testing:testrig2}Test Rig 2.0 and Obstacle Detection}
+
+Running in parallel to the development of Test Rig 2.0 was the building of the overall software architecture and the obstacle detection software. Using video data gathered on the Ucluelet trip, many different filtering, thresholding, line finding and pattern recognition functions were experimented with and tested. The pipeline and initial functionality of the object detection software was developed for March 14, 2015 when the Sailbot team held their Sync-the-Boat hackathon. However, much of the object detection development was paused on March 21 when our presentation of our obstacle detection system won the top prize among oral presentations at UBC's Multidisciplinary Undergraduate Research Conference. As a direct result of this prize we acquired several new sponsorships, opening the door to the possibility of buying a higher-quality camera (such as the FLIR Quark2, the best model of which has a 640x 512 resolution). Since cameras of this quality would drastically improve our detection range and accuracy, but the detection software would need entirely different functions from those used for the Lepton, much of our software focus shifted to evaluating the capabilites of the Quark2 and the Raspberry Pi's ability to process images at higher resolutions.
+
+The second main outing took place on Wednesday, April 1, 2015. With the Test Rig 2.0, in which we had developed more advanced Lepton functionality (in the form of controllable video scaling, more advanced correction algorithms and general bug-fixing), a solid internal structuring, and implemented a STM32F Discovery board to act as an interial mass unit (IMU). Stamping every gathered frame with a 9 degree of freedom IMU readout (accelerometer, gyroscope, and magnetometer) gave us a database to use when we implement horizon-finding and orientation tracking from IMU data; this is one of the ongoing commitments. These tests were performed on a boat taken out in North Vancouver.
+
+
+\subsubsection{\label{sec:discussion:testing:testrig3}Final Rig}
+
