@@ -18,3 +18,4 @@
 
 # Ignore Windows files
 *.db
+~*
