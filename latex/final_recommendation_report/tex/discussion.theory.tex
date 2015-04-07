@@ -84,3 +84,34 @@ Finally, after as much extraneous information has been removed as possible, edge
 \end{figure}
 
 High concentrations of edges combined with lines at sharp angles to the horizon have a high likelihood to be an obstacle, while very rarely being triggered by ocean waves or other noise. Since obtacles prove to be persistent where noise doesn't trip the algorithm often enough, weighting an obstacle's likelihood of existence by it's frequency of appearance is a strong method to filter out false positives while limiting the chance of false negatives.
+
+
+\subsubsection{\label{sec:discussion:theory:righardware}Hardware}
+
+The rig containing the IR camera will be exposed to a heavily corrosive, destructive environment when travelling across the Atlantic ocean. Salt water will evaprate to leave deposits on all surfaces of the equipment, heavy waves will be assumed to crash over it on a semi-regular basis, and marine life could pose additional problems. In order to alleviate these problems, the rig must be both strong and waterproof; several theoretical considerations must be taken into account during the design.
+
+Firstly, the lens of the camera must be strong and water resistant. The initial version of the test rig used a thin plastic film as the lens; while the HDPE film had excellent long-wave IR transparency, this is not a suitable solution for a long-term, durable build. Many materials were considered for the lens of the final rig design, with rigidity and transparency in the 7-13 micron range being the most important factors. While certain materials such as sapphire crystals are often used in long-wave infrared imaging, most are too prone to scratching or, worst of all, water soluble. An approprite solution was found with Zinc Selenide, which has excellent, even transmission across the entire spectrum our camera operates in (Figure \ref{fig:spectra}).
+
+\begin{figure}
+\centering
+\begin{subfigure}{0.4\textwidth}
+ \centering
+ \includegraphics[width=0.95\textwidth]{"./image/zinc_selenide_spectra"}
+ \caption{Zinc Selenide transmission spectra.}
+ \label{fig:spectra:sub1}
+\end{subfigure}
+\begin{subfigure}{0.4\textwidth}
+ \centering
+ \includegraphics[width=0.95\textwidth]{"./image/edmund_plastic_spectra"}
+ \caption{Typical IR-transparent plastic spectra.}
+ \label{fig:spectra:sub2}
+\end{subfigure}
+\caption{Comparing transmission spectra of various materials.}
+\label{fig:spectra}
+\end{figure}
+
+Secondly, any water that sits on the lens of our camera will evaporate to leave behind salt deposits, obscuring and degrading our image quality significantly over time. While not a robust subject of research, anecdotal evidence from several boat owners tells us that within two weeks at sea, any unattended surface becomes heavily encrusted. So, any method of reducing salt deposits is highly desired. 
+
+Hydrophobic coatings seem to be an obvious choice; if water never stays on the lens, then it can't evaporate there. However, there are no commercial coatings built with the intent to remain IR transparent. We found several basic spray-on coatings, such as Rain-X or the like, to be minimally detrimental to the transmission spectra of our lens but these coatings have a short lifetime; they're meant to be reapplied every week or two (something clearly impossible on the Sailbot). While one of these coatings will be applied at the beginning of the voyage, it can only be assumed to be useful for a few days after launch.
+
+A second, less beneficial choice comes in the form of a passive system. Similar to the aerodynamics of bug deflectors on flat-front vehicles, \cite{bug-deflector} by disrupting the airflow in front of the lens in a manner so that the air flows sharply upwards in front of it, a sort of "air wall" helps to intercept airborne droplets and move them past the lens before they land. As the Sailbot's expected to be operating in areas of high wind and travelling at speed, this effect may significantly reduce the amount of water droplets that land on the lens without consuming any power or adding any significant weight or complexity to the system. Wind tunnel testing is planned for our model in late April.
