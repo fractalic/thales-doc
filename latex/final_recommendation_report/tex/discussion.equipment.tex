@@ -1,1 +1,60 @@
 % This is a subsection: use only subsubsections in this file.
+\iffalse
+Experimental Equipment / Flow Diagram / Algorithms
+This section should include figures and photos of the experimental apparatus and team-fabricated elements, but should not show detailed drawings of the components. Technical details and drawings can be included in an appendix.
+\fi
+
+\subsubsection{\label{sec:discussion:equipment:hardware}Test Hardware}
+
+\begin{figure}
+\centering
+\begin{subfigure}{.65\textwidth}
+  \centering
+  \includegraphics[width=.95\linewidth]{"./image/20150219-_BEN2653"}
+  \caption{Close up of Test Rig 1.0}
+  \label{fig:test_rig_1.0_tofino:sub1}
+\end{subfigure}%
+\begin{subfigure}{.35\textwidth}
+  \centering
+  \includegraphics[width=.95\linewidth]{"./image/20150219-_BEN2655"}
+  \caption{Test Rig 1.0, clamped to a tripod secured to the bow of a small boat.}
+  \label{fig:test_rig_1.0_tofino:sub2}
+\end{subfigure}
+\caption[Test Rig 1.0 open-ocean test.]{Two views of an open-ocean test at Tofino of the FLIR Lepton, contained in Test Rig 1.0.}
+\label{fig:test_rig_1.0_tofino}
+\end{figure}
+
+In order to evaluate the FLIR Lepton infrared camera, it was important to secure it in a waterproof housing. This housing, dubbed the Test Rig 1.0, was constructed from a large oval plastic container with a waterproof gasket-sealing lid. A single hole was drilled in the side to accomodate a button to start and stop the recording of video from the Lepton.
+
+\begin{figure}
+\centering
+
+\begin{subfigure}{.50\textwidth}
+\centering
+\includegraphics[width=.90\linewidth]{"./image/lepton"}
+\caption[FLIR Lepton]{\label{fig:lepton}The FLIR Lepton infrared camera (black) mounted in a green breakout board developed by Pure Engineering \cite{pure-eng}. (Image CC BY-NC-SA 3.0 by SparkFun.)}
+\end{subfigure}%
+\begin{subfigure}{.50\textwidth}
+\centering
+\includegraphics[width=.90\linewidth]{"./image/raspberry-pi"}
+\caption[Raspberry Pi]{\label{fig:rpi}The Raspberry Pi Model B+, a microcomputer used by the Sailbot team for all control functions, as well as by our group to run the Test Rig \cite{rpi}. (Image CC BY-NC-SA 3.0 by SparkFun.)}
+\end{subfigure}
+
+\caption[Equipment used in the Test Rig.]{\label{fig:rpi-lepton}The Raspberry Pi and FLIR Lepton used in the Test Rig.}
+
+\end{figure}
+
+Figure \ref{fig:test_rig_1.0_tofino} shows Test Rig 1.0 being tested at Tofino in February. (The Test Rig interior has since been refined and restructured in version 2.0). This test included data collection in sunshine and rain, and in broad daylight, evening twilight, and early night.
+
+As well as being weather resistant and transparent to infrared, the plastic container was large enough to hold a battery pack, Raspberry Pi computer, and  the Lepton camera. Version 2.0 of the Test Rig features a waterjet cut plastic interior support structure to organize all cables and devices, and accomodate a large inertial motion unit (IMU).
+
+\subsubsection{\label{sec:discussion:equipment:software}Test Software}
+The Test Rig is controlled by a straightfoward Python script, shown in Figure \ref{fig:test-rig-software}. The script responds to button presses, starting and stopping the recording of video from the Lepton. 60 by 80 pixel frames are grabbed from the Lepton approximately 20 times per second at 16 bit depth. These high bit depth images, which high tonal gradation resolution, are then converted to an 8-bit video stream. Version 2.0 of the Test Rig hardware includes an IMU, and this data is polled and logged for each frame captured.
+
+As information is lost in the conversion of 16-bit source images to 8-bit video, the original 8-bit images are stored alongside the video output. As well, the bit-mapping for the video is changed dynamically - the darkest and brightest regions in the video are assigned minimal and maximal values respectively in the 8-bit encoding, whether or not these regions do not take on maximal values in the 16-bit images. In effect, therefore, the video exposure is computed frame-by-frame. This maximizes the contrast ratio in the video, though this approach does not always produce the best frames for analysis.
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{"./image/button_py"}
+\caption[Test Rig software flow]{\label{fig:test-rig-software}The flow of the Test Rig control software.}
+\end{figure}
