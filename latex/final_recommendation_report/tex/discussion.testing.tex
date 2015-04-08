@@ -28,20 +28,20 @@ Running in parallel to the development of Test Rig 2.0 was the building of the o
 \begin{subfigure}{0.4\textwidth}
  \centering
  \includegraphics[width=0.95\textwidth, angle= 180]{"./image/testrig2_interior"}
- \caption{The interior strucutre, with the RPi, Discovery Board, and Lepton (in housing) in view.}
+ \caption{The interior structure, with the RPi, Discovery Board, and Lepton (in housing) in view.}
  \label{fig:testrig2_testing:sub2}
 \end{subfigure}
 \caption{Test Rig 2.0.}
 \label{fig:testrig2_testing}
 \end{figure}
 
-The second main outing took place on Wednesday, April 1, 2015. With the Test Rig 2.0, in which we had developed more advanced Lepton functionality (in the form of controllable video scaling, more advanced correction algorithms and general bug-fixing), a solid internal structuring, and implemented a STM32 Discovery board to act as an interial mass unit (IMU). Stamping every gathered frame with a 9 degree of freedom IMU readout (accelerometer, gyroscope, and magnetometer) gave us a database to use when we implement horizon-finding and orientation tracking from IMU data; this is one of the ongoing commitments. These tests were performed on a boat taken out in North Vancouver.
+The second main outing took place on Wednesday, April 1, 2015. With the Test Rig 2.0, in which we had developed more advanced Lepton functionality (in the form of controllable video scaling, more advanced correction algorithms and general bug-fixing), a solid internal structuring, and implemented an STM32 Discovery board to act as an interial measurement unit (IMU). Stamping every gathered frame with a 9 degree of freedom IMU readout (accelerometer, gyroscope, and magnetometer) gave us a database to use when we implement horizon-finding and orientation tracking from IMU data; this is one of the ongoing commitments. These tests were performed on a boat taken out in North Vancouver.
 
 
 \subsubsection{\label{sec:discussion:testing:testrig3}Final Rig}
 The final version of the obstacle detection system, the one which will be placed on board the Sailbot, will take a drastically different physical form from the test rigs. While the test rigs held the Raspberry Pi, battery, Lepton, and IMU all in one casing, on the final rig ideally only the lepton is mounted high on a tripod at the front of the boat while the rest of the electronics are in a secure compartment in the hull. This limits the weight at the top of the tripod, reducing the induced moment and minimizing the effect on the original mechanical design specs (which did not anticipate any obstacle detection systems). In addition, the final rig must be durable and resistant to sea water damage, incorporating a solid IR-transparent window and some method to combat salt buildup. 
 
-The final rig is, at the time of writing this report, still in the design stages. At the beginning of the term, building the final rig was a desired deliverable but this has changed as Sailbot extended the project timeline and team members committed to working with them past the early April deadline. The design concept is complete for the final rig, though building and testing will take place through April and possibly into May. The finalized software deadline has also been extended with the evaluation of the Quark2, though I can still discuss the planned testing methods for each.
+The final rig is, at the time of writing this report, still in the design stages. At the beginning of the term, building the final rig was a desired deliverable but this has changed as Sailbot extended the project timeline and team members committed to working with them past the early April deadline. The design concept is complete for the final rig, though building and testing will take place through April and possibly into May. The finalized software deadline has also been extended with the evaluation of the Quark2, though we can still discuss the planned testing methods for each.
 
 The finalized rig will contain a housing for the infrared camera (either the FLIR Lepton or Quark2), with electrical connections down to the hull of the boat. The exterior will have an extended conical lens protector to minimize splashes (already built and tested on Test Rig 2.0), an airflow shaper to add passive protection from water droplets (as discussed in the Theory section previously) as well as a loose, external windmill-like shell which can harness wind power to spin a wiper across the lens face. These components will be assembled and built mid April, with wind tunnel testing in the Rusty Hut pending for the end of April.
 
