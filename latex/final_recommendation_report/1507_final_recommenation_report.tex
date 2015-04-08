@@ -1,4 +1,4 @@
-\documentclass[amsmath, amssymb, aps, pra, 12pt]{revtex4-1}
+\documentclass[twocolumn, aps, pra, 12pt, floatfix, showpacs]{revtex4-1}
 \setlength{\textheight}{9.5in}
 
 \usepackage{graphicx, amsmath, gensymb}
@@ -6,6 +6,7 @@
 \usepackage{subcaption, float} 
 \usepackage[justification=centering]{caption}
 \usepackage{enumerate}
+\usepackage{capt-of}
 
 % Adjust list layouts.
 \let\olddescription\description
@@ -50,6 +51,14 @@
 \date{April 6, 2015}
 \maketitle
 
+\onecolumngrid
+\begin{center}
+  \includegraphics[width=0.95\textwidth]{"./image/bilateral_smoothing"}
+ \label{fig:test}
+\end{center}
+
+
+\newpage
 \pagenumbering{roman}
 
 \section*{Executive Summary}
