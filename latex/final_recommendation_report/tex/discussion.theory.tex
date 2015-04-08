@@ -12,7 +12,7 @@ Acquiring a usable image is only the first step in object detection. In order to
 
 In the ideal detection case, we would see a large boat on still water, with a clear sky. In this ideal image, the only sharp lines are those which define the boat and the horizon, at which point linefinding is easy and detection is trivial. However, the imaging conditions that Sailbot will experience are sure to be far from ideal; waves create varying angles of incidence from the sunlight, meaning a varying IR intensity across uniform-temperature water; the boats may be small and far away, and the Sailbot won't ever be still. This means that image smoothing must be performed; filters must be in place to help segment the image and discard noise. While basic smoothing can take place as simple blurring (see Figure \ref{fig:blurring:sub1}, an example from the O'Rielly OpenCV textbook on computer vision), simple techniques such as mean or median blurring (where the pixel value is set to the mean/median of those around it) is a highly lossy technique. Gaussian smoothing (or bilateral smoothing, which is Gaussian with a bias towards similarly-coloured pixels) is much better at preserving edges while smoothing low frequency noise (see Figure \ref{fig:blurring:sub2}).
 
-\begin{figure}
+\begin{figure}[h]
 \centering
 \begin{subfigure}{0.4\textwidth}
  \centering
@@ -32,7 +32,7 @@ In the ideal detection case, we would see a large boat on still water, with a cl
 
 The FLIR Lepton camera we're using for this project is a very low resolution camera -- only 80x60 in a 50 degree field of view -- so smoothing is not really needed; each pixel covers several square feet of most objects it's looking at, so the images look like they've been through a heavy mean filtering process already (Figure \ref{fig:buoy_ex}. However, should the Sailbot upgrade to a higher resolution camera (as is being currently considered) then smoothing algorithms will play a more important role in our postprocessing. 
 
-\begin{figure}
+\begin{figure}[h]
 \centering
 \includegraphics[width=0.4\textwidth]{"./image/buoy_example"}
 \caption{Buoy at 50 meters, no smoothing or processing}
@@ -68,7 +68,7 @@ After reducing noise, increasing contrast and thresholding help to segment the i
 
 The next step in most traditional object detection algorithms is to apply a thresholding technique: blocking off all pixels less than a certain intensity value is an easy way to prioritize close, large, easy-to-identify objects. Particularly with infrared imaging, the pixel intensity corresponding to an object is proportional to its heat; in the ocean, boats are drastically warmer than the ocean surrounding them. In addition, a ceiling threshold helps to eliminate the sun from detection as a potential obstacle, as the recorded intensity of the sun is orders of magnitude higher than those of most any terrestrial objects. Rather than apply a static threshold, as the recorded pixel values can vary by large amounts depending on the time of day, position of the sun, cloud cover, and fog, an adaptive threshold is much more useful. Adaptive thresholds are "smarter" thresholds, given that they take into account the overall pixel intensities in the image and apply a differing threshold to each part of the image based on its surroundings. Adaptive thresholds excel at accounting for lighting differences, but in our application they can help account for sun position and waves. Figure \ref{fig:thresh_comp} illustrates the benefit of adaptive thresholds over traditional binary thresholds.
 
-\begin{figure}
+\begin{figure}[h]
 \centering
 \includegraphics[width=0.6\textwidth]{"./image/threshold_comparisons"}
 \caption{Simple vs Adaptive Thresholding, from the O'Rielly OpenCV textbook}
@@ -76,7 +76,8 @@ The next step in most traditional object detection algorithms is to apply a thre
 \end{figure}
 
 Finally, after as much extraneous information has been removed as possible, edge detection algorithms can be applied to find areas of complex geometry in the image. The most commonplace edge detection algorithm is Canny edge detection, which maps the first and second derivatives in both horizontal and vertical directions over the image before looking for local maxima and minima; by pairing these extrema with a gradient analysis and applying a threshold to filter for high rates of change, the Canny algorithm is very effective at finding edges. In the Sailbot case, we can use Canny edge detection on our filtered images to identify areas with many edges. 
-\begin{figure}
+
+\begin{figure}[h]
 \centering
 \includegraphics[width=0.6\textwidth]{"./image/canny"}
 \caption{Canny edge detection, from the O'Rielly OpenCV textbook}
@@ -92,7 +93,7 @@ The rig containing the IR camera will be exposed to a heavily corrosive, destruc
 
 Firstly, the lens of the camera must be strong and water resistant. The initial version of the test rig used a thin plastic film as the lens; while the HDPE film had excellent long-wave IR transparency, this is not a suitable solution for a long-term, durable build. Many materials were considered for the lens of the final rig design, with rigidity and transparency in the 7-13 micron range (the wavelength of long-wave infrared light) being the most important factors. While certain materials such as sapphire crystals are often used in long-wave infrared imaging, most are too prone to scratching or, worst of all, are water soluble. An approprite solution was found with Zinc Selenide, which has excellent, even transmission across the entire spectrum our camera operates in (see Figure \ref{fig:spectra}).
 
-\begin{figure}
+\begin{figure}[h]
 \centering
 \begin{subfigure}{0.4\textwidth}
  \centering

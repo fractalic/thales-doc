@@ -4,18 +4,18 @@
 \renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
 \subsection{\label{app:AppendixA}Obstacle detection} 
 
-\subsubsection{\label{app:minimum-detection-distance}Minimum detection distance}
-Constraints on the viewing area appear with any method of detection, whether radar, lidar, on infrared. For directional emitters, the minimum detection range is given by trigonometry and depends only on the vertical beam width and the mounting angle of the device. $d = h/\text{tan}(\eta)$, where $\eta=\pi/2-(\theta/2+\phi)$ given by $\theta$, the vertical beam spread, and $\phi$, the emitter mount angle. Figure \ref{fig:emitter-angle} details the trigonometric analysis.
-\begin{figure}
+\begin{figure}[h]
 \includegraphics[width=70mm,natwidth=505,natheight=394]{"./image/directional-emitters"}
 \caption[Minimum distance to detected obstacle.]{\label{fig:emitter-angle}Minimum detection distance for a directional emitter.}
 \end{figure}
 
+\subsubsection{\label{app:minimum-detection-distance}Minimum detection distance}
+Constraints on the viewing area appear with any method of detection, whether radar, lidar, on infrared. For directional emitters, the minimum detection range is given by trigonometry and depends only on the vertical beam width and the mounting angle of the device. $d = h/\text{tan}(\eta)$, where $\eta=\pi/2-(\theta/2+\phi)$ given by $\theta$, the vertical beam spread, and $\phi$, the emitter mount angle. Figure \ref{fig:emitter-angle} details the trigonometric analysis.
 
 \subsubsection{\label{app:obstacle-frequency}Frequency of floating obstacles}
 Given the vast size of the Atlantic ocean, floating obstacles are rare. Nevertheless, it is instructive to provide a reasonable guess of the space between obstacles of different types.
 
-\begin{table}
+\begin{table}[h]
 \caption{\label{tab:obstacles}Obstacles and risk}
 \begin{tabular}{c|c|c|c}
 
@@ -54,7 +54,7 @@ The final test level is user tests, which include testing on the actual vessel i
 
 These test levels are not performed in sequence; all testing levels should interact with the development process, and be re-evaluated whenever a notable change is made. Figure \ref{fig:software-testing} shows the connection of testing and development.
 
-\begin{figure}
+\begin{figure}[h]
 \includegraphics[width=100mm,natwidth=494,natheight=299]{"./image/software-testing"}
 \caption[Software development cycle]{\label{fig:software-testing}Development cycle. Tests are written before or simultaneously with production code, and both automated and manual testing is run intermittently during development.}
 \end{figure}

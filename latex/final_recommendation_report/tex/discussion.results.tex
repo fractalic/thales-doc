@@ -1,6 +1,6 @@
 At the beginning of the term, we borrowed a high-quality infrared camera from the UBC Mechanical Engineering department to test the appearance of obstacles in the long-wave infrared spectrum. These images appear in Figure \ref{fig:freighter_ex} and Figure \ref{fig:person_ex}.
 
-\begin{figure}
+\begin{figure}[h]
 \centering
 \begin{subfigure}{0.45\textwidth}
  \centering
@@ -18,7 +18,7 @@ At the beginning of the term, we borrowed a high-quality infrared camera from th
 \label{fig:freighter_ex}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h]
 \centering
 \begin{subfigure}{0.45\textwidth}
  \centering
@@ -42,7 +42,7 @@ These images gave us great enthusiasm for the potential of infrared imaging in o
 
 The first testing with Test Rig 1.0 in Ucluelet took place over three outings spread over two days. With basic image capture and video encoding code running on the FLIR Lepton camera we purchased, we shot video during a clear sunny afternoon, just before and after sunset, and during foggy overcast weather the next day. With the Lepton wirelessly transmitting video back to a laptop we kept in the cabin of the boat, it was immediately obvious the difference that the camera's resolution makes. While the initial images shown earlier in this section were taken on a high-resolution IR camera, the Lepton had only 80x60 pixel resolution in a 50 degree field of view. This means that when looking at objects 100 meters away, each pixel covers well over a square meter of space. Nevertheless, this round of testing gave valuable insight into the function of the camera in a diverse set of atmospheric conditions. While on approach to each obstacle in turn, the captain of the boat gave distance readouts from his onboard radar system which we timestamped to the videos to interpolate the approximate distance to each object at each point in time.
 
-\begin{figure}
+\begin{figure}[h]
 \centering
 \begin{subfigure}{0.45\textwidth}
  \centering
@@ -62,27 +62,34 @@ The first testing with Test Rig 1.0 in Ucluelet took place over three outings sp
 
 Figure \ref{fig:boat_horizon} shows the Lepton's view of a distant boat. When watching the video or viewing the images, the boat is easy to track by eye but at this point the boat appears only two or three pixels wide, too low of a threshold for the detection algorithm to pick it up. The video of a boat approach at night shows very similar results; while the night video does show a lens flare characteristic of the video shot at that time, aside from the flare defect the boats appear similarly visible during the day and night both. 
 
-Buoys were also readily visible during the day. Figure \ref{fig:buoy} shows a buoy on approach during the day. Since buoys are almost stationary, we could approach very close by them and obtain much higher quality images than what was possible for boats. Not only are the buoys distinctively shaped and slow moving, but they also have mounted lights that make them highly visible. The images of buoys taken on this trip give us high confidence that the Sailbot will be able to identify and avoid buoys with relative ease.
+Buoys were also readily visible during the day. Figure \ref{fig:uce_imgs:sub1} shows a buoy on approach during the day. Since buoys are almost stationary, we could approach very close by them and obtain much higher quality images than what was possible for boats. Not only are the buoys distinctively shaped and slow moving, but they also have mounted lights that make them highly visible. The images of buoys taken on this trip give us high confidence that the Sailbot will be able to identify and avoid buoys with relative ease.
 
-\begin{figure}
+\begin{figure}[h]
 \centering
-\includegraphics[width=0.3\textwidth]{"./image/buoy_circled"}
-\caption{Buoy at 50-75 meters}
-\label{fig:buoy}
+\begin{subfigure}{0.45\textwidth}
+ \centering
+ \includegraphics[width=0.7\textwidth]{"./image/buoy_circled"}
+ \caption{Buoy at 50-75 meters}
+ \label{fig:uce_imgs:sub1}
+\end{subfigure}
+\begin{subfigure}{0.45\textwidth}
+ \centering
+ \includegraphics[width=0.3\textwidth]{"./image/shore_fog_circled"}
+ \caption{Small boat at 100m through fog}
+ \label{fig:uce_imgs:sub2}
+\end{subfigure}
+\caption{Objects observed during Ucluelet testing}
+\label{fig:uce_imgs}
 \end{figure}
 
-Images taken during the second day of Ucluelet testing are dramatically different from those taken the first day, however. While the first day has clear skies, the second day was overcast and foggy. This weather, possibly combined with problems in our field correction code, led many of the videos to appear highly washed-out; the horizon is not clearly visible, which tells us that any horizon finding technique can't be optically driven, and objects are only visible at greatly reduced ranges. Figure \ref{fig:shore_fog} shows an image of a boat taken through fog; while still visible, all context clues are removed from the image.
 
-\begin{figure}
-\centering
-\includegraphics[width=0.3\textwidth]{"./image/shore_fog_circled"}
-\caption{Small boat at 100m through fog}
-\label{fig:shore_fog}
-\end{figure}
+Images taken during the second day of Ucluelet testing are dramatically different from those taken the first day, however. While the first day has clear skies, the second day was overcast and foggy. This weather, possibly combined with problems in our field correction code, led many of the videos to appear highly washed-out; the horizon is not clearly visible, which tells us that any horizon finding technique can't be optically driven, and objects are only visible at greatly reduced ranges. Figure \ref{fig:uce_imgs:sub2} shows an image of a boat taken through fog; while still visible, all context clues are removed from the image.
+
+
 
 Aside from information gathered on the infrared appearance of objects at sea, this round of testing also exposed several image defects that pose problems for our detection software (shown in Figure \ref{fig:defects}). Scaling issues made sections of the images appear lighter or darker than they should be, consistent flaring on the left side of the camera (regardless of our heading or the position of the sun) often obscured objects, and reflections from the sun created fleeting "objects" that could cause false positives. 
 
-\begin{figure}
+\begin{figure}[h]
 \centering
 \begin{subfigure}{0.3\textwidth}
  \centering
@@ -113,7 +120,7 @@ One of the main priorities for the development of Test Rig 2.0 was eliminating t
 
 The second round of on-water testing took place on Wednesday, April 1 in North Vancouver. The goal of this test was to integrate the inertial measurement unit and eliminate as many image defects as possible. The IMU was seen to be necessary during the first round of testing, when fog obscured the horizon and many long-distance objects. Since knowing the position of the horizon is important for eliminating clouds (and the sun) from being identified as obstacles, tracking orientation with an IMU is the next best way to track the horizon. Each frame was associated with a set of IMU readings - three axes of each an accelerometer, gyroscope, and magnetometer. This provides a base of test data for future development of the orientation tracking code. Furthermore, the image scaling algorithm was changed to better handle very bright spots (such as the sun) without blacking out the rest of the image.  During this entire round of testing neither the artefact nor flaring defects were observed; we're confident that they were fixed by a combination of better cabling and connections and reprogramming of the Lepton software for better pixel drift corrections. This round of testing was much shorter than the first Ucluelet outing, with fewer boat and buoy approaches available. In addition, the Lepton was oriented correctly in this rig design so that the wider field of view ran horizontally, rather than vertically as in Test Rig 1.0.
 
-\begin{figure}
+\begin{figure}[h]
 \centering
 \begin{subfigure}{0.45\textwidth}
  \centering
@@ -136,7 +143,7 @@ The second round of on-water testing took place on Wednesday, April 1 in North V
 
 Our two rounds of testing produced a wealth of data to feed into our obstacle detection system. After the Ucluelet round of testing, our project ran in two parallel veins; one to improve the hardware and produce Test Rig 2.0, and one to pipeline and produce a working version of obstacle detection software. The detection software currently evaluates the video frame by frame (i.e without any optical flow algorithms) by segmenting the image to discard inappropriate regions (e.g the sky), then finding lines and contours, then identifying regions of high contour density to locate an object. When tested with the Lepton images, the software in it's current form can identify objects at a maximum range of 100 meters.  Figure \ref{fig:buoy_iden} shows the software identifying a buoy at approximately 50 meters, and outlining the area where it locates that object in a white bounding box.
 
-\begin{figure}
+\begin{figure}[h]
 \centering
 \includegraphics[width=0.7\textwidth]{"./image/obstacle-detection"}
 \caption{Identifying a buoy at 50 meters}

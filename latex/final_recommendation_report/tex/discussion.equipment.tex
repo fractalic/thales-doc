@@ -6,7 +6,7 @@ This section should include figures and photos of the experimental apparatus and
 
 \subsubsection{\label{sec:discussion:equipment:hardware}Test Hardware}
 
-\begin{figure}
+\begin{figure}[h]
 \centering
 \begin{subfigure}{.65\textwidth}
   \centering
@@ -26,7 +26,7 @@ This section should include figures and photos of the experimental apparatus and
 
 In order to evaluate the FLIR Lepton infrared camera, it was important to secure it in a waterproof housing. This housing, dubbed the Test Rig 1.0, was constructed from a large oval plastic container with a waterproof gasket-sealing lid. A single hole was drilled in the side to accommodate a button to start and stop the recording of video from the Lepton.
 
-\begin{figure}
+\begin{figure}[h]
 \centering
 
 \begin{subfigure}{.50\textwidth}
@@ -57,7 +57,7 @@ The Test Rig is controlled by a straightforward Python script, shown in Figure \
 
 As information is lost in the conversion of 16-bit source images to 8-bit video, the original 8-bit images are stored alongside the video output. As well, the bit-mapping for the video is changed dynamically - the darkest and brightest regions in the video are assigned minimal and maximal values respectively in the 8-bit encoding, whether or not these regions do not take on maximal values in the 16-bit images. In effect, therefore, the video exposure is computed frame-by-frame. This maximizes the contrast ratio in the video, though this approach does not always produce the best frames for analysis.
 
-\begin{figure}
+\begin{figure}[h]
 \centering
 \includegraphics[width=\linewidth]{"./image/button_py"}
 \caption[Test Rig software flow]{\label{fig:test-rig-software}The flow of the Test Rig control software.}
@@ -74,7 +74,7 @@ Work on this part of the system is currently on hold, as UBC Sailbot has been of
 
 This approach depends on reliable identification of the horizon line.  Waves, rain, and fog make finding the horizon from the image unreliable at best.  Instead, we will use the IMU to determine Sailbot's orientation, allowing us to infer the position of the horizon - the Test Rig 2.0 includes an IMU to support this.  We will combine angular rate integration of the gyroscope data (to respond rapidly to changes in orientation) with a moving average of the direction of gravity as measured by the accelerometer (to provide a reliable reference point to correct for drift in the gyro measurements) to determine orientation.
 
-\begin{figure}
+\begin{figure}[h]
 \includegraphics[width=100mm,natwidth=1203,natheight=627]{"./image/horizon_finding"}
 \caption[UBC Sailbot.]{\label{fig:horizon-finding}Direction of obstacles is determined by projecting them onto the horizon line}
 \end{figure}
@@ -84,7 +84,7 @@ After locating obstacles in space, Sailbot needs to plot a course around them.  
 
 When an obstacle is identified in a frame, we will add to the hazard value of points in a cone centered on its estimated angle, as shown in Figure \ref{fig:routemaking}.  These hazard values will decrease over time - false detections will fade out, but real obstacles will be visible over several frames, increasing their hazard value enough to cause routemaking to steer around them.
 
-\begin{figure}
+\begin{figure}[h]
 \includegraphics[width=160mm,natwidth=1203,natheight=627]{"./image/routemaking"}
 \caption[UBC Sailbot.]{\label{fig:routemaking}Routemaking}
 \end{figure}
