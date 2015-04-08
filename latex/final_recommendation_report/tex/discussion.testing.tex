@@ -3,9 +3,14 @@ The performance of the Lepton infrared camera was the largest unknown when start
 
 \subsubsection{\label{sec:discussion:testing:testrig1}Test Rig 1.0}
 
-Test Rig 1.0 was the first testing excursion of the term. The goal of this testing round was to implement basic Lepton functionality (image capture, scaling from 16-bit images to the more standard 8-bit, and video encoding) along with the communication protocols so that the Raspberry Pi in the test rig's box wirelessly backed up the data to another computer on board. The Test Rig 1.0 was then taken to Ucluelet over Reading Week (February 15-19, 2015). Brian Congdon of Subtidal Adventures, a whale-watching company in Ucluelet, took us out for close to 8 hours of total time at sea over two days, taking us on close drive-bys of bouys, logs, boats and marine life. With the test rig strapped to the front of the boat, this outing gave us a massive amount of invaluable footage, guiding the development of Test Rig 2.0 and giving insight into the final rig design. Results from this outing, as well as the others, will be shown and discussed in the Results section of this paper.
+Test Rig 1.0 was the first testing excursion of the term. The goal of this testing round was to implement basic Lepton functionality (image capture, scaling from 16-bit images to the more standard 8-bit, and video encoding) along with the communication protocols so that the Raspberry Pi in the test rig's box wirelessly backed up the data to another computer on board. The Test Rig 1.0 was then taken to Ucluelet over Reading Week (February 15-19, 2015). Brian Congdon of Subtidal Adventures, a whale-watching company in Ucluelet, took us out for close to 8 hours of total time at sea over two days, taking us on close drive-bys of bouys, logs, boats and marine life. As we approached each obstacle, the captain would read out the our distance using the onboard radar system which we would then timestamp into each recording; this lets us play back through the footage we captured and interpolate the distance to the obstacle at each point in time. Pairing this with time readouts of when our obstacle detection code first positively identifies an object, we know the approximate distance at which our code identifies various obstacles. With the test rig strapped to the front of the boat, this outing gave us a massive amount of invaluable footage, guiding the development of Test Rig 2.0 and giving insight into the final rig design. Results from this outing, as well as the others, will be shown and discussed in the Results section of this paper.
 
-
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth]{"./image/testrig1_front"}
+\caption{Front of Test Rig 1.0}
+\label{fig:testrig1_testing}
+\end{figure}
 
 
 \subsubsection{\label{sec:discussion:testing:testrig2}Test Rig 2.0 and Obstacle Detection}
@@ -40,4 +45,4 @@ The final rig is, at the time of writing this report, still in the design stages
 
 The finalized rig will contain a housing for the infrared camera (either the FLIR Lepton or Quark2), with electrical connections down to the hull of the boat. The exterior will have an extended conical lens protector to minimize splashes (already built and tested on Test Rig 2.0), an airflow shaper to add passive protection from water droplets (as discussed in the Theory section previously) as well as a loose, external windmill-like shell which can harness wind power to spin a wiper across the lens face. These components will be assembled and built mid April, with wind tunnel testing in the Rusty Hut pending for the end of April.
 
-Moving forward with 
+Moving forward with the software, integrating the IMU data with orientation tracking and horizone finding will be tested with the data sets obtained on the April 1 outing. Once the choice of infrared camera is finalized (and purchased, if the Quark2 is chosen) then our obstacle detection software will be refined by playing our existing test data through the pipeline and optimizing for identification at longer and longer distances; this is measured by timestamping when the software first identifies the object, and optimizing the code for the shortest timestamp.
