@@ -62,6 +62,9 @@ As information is lost in the conversion of 16-bit source images to 8-bit video,
 \subsubsection{\label{sec:discussion:equipment:architecture}Software Architecture and Routemaking Integration}
 
 \paragraph{\label{sec:discussion:equipment:architecture:obstacledetection}Obstacle Detection}
+Our software starts by identifying obstacles in a single frame of video.  First, it applies Erosion and Dilation filters to reduce noise, then uses OpenCV's Canny Edge Detection to find contours.  Finally, it draws bounding boxes around areas with a high density of contours - these are considered to be obstacles.
+
+Work on this part of the system is currently on hold, as UBC Sailbot has been offered a donation of a higher-resolution infrared camera, the FLIR Quark.  This will significantly improve our detection capabilities, but is likely to require different filters and detection techniques from the Lepton.
 
 \paragraph{\label{sec:discussion:equipment:architecture:obstaclelocation}Obstacle Location}After identifying an obstacle in an image, the next step is to determine its location in space to allow Sailbot to avoid it.  We will not attempt to estimate the distance to an obstacle, only the direction.  Figure \ref{fig:horizon-finding} shows our procedure for determining the direction of an obstacle - each obstacle's position in the image is projected onto the horizon line, giving its angle relative to Sailbot's path.
 
