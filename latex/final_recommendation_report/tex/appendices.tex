@@ -2,7 +2,25 @@
 % Show appendix character in front of subsection number.
 \renewcommand{\thesubsection}{\Alph{subsection}}
 \renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
-\subsection{\label{app:AppendixA}Obstacle detection} 
+\subsection{\label{app:AppendixA}Devision of Labour}
+Our work with the Sailbot team primarily involved collaborating with:
+
+\begin{itemize}
+ \item Paul Cernek, head of Sailbot's Obstacle Avoidance subteam
+ \item Josh Baker, member of Sailbot's Controls and OA subteams
+ \item Josh Andrews, head of Sailbot's Software team
+ \item Derek Lun, member of Sailbot's OA subteam
+ \item Arek Sredski, head of Sailbot's Control team
+ \item Krisoffer Vik Hansen, Sailbot team Captain
+\end{itemize}
+
+While many areas of the work done on the OA system were a result of collaboration between many of the members on this project, certain aspects are more associated with some subgroups than others. Hardware development was primarily taken care of by the Engineering Physics group members, while the working obstacle detection software (the bounding boxes) was developed primarily by Sailbot members (in particular Arek, Paul, and Josh Baker). The code to establish basic Lepton functionality, video encoding, and wireless communication was jointly developed, as was the programming and integration of the IMU. Overall software architecture and pipelining was a joint effort, although this architecture is largely skeletal at the time of writing this report pending the purchase of a Quark2 camera. All testing excursions were equally attended by Eng Phys members and Sailbot members, with planning and logistics credit going to Paul.
+
+Extra thanks are extended to Jon Mikkelsen, Sailbot's Faculty Sponsor for offering advice, insight, and test facilities throughout this project.
+
+\clearpage
+\newpage
+\subsection{\label{app:AppendixB}Obstacle detection} 
 
 \begin{figure}[h]
 \includegraphics[width=70mm,natwidth=505,natheight=394]{"./image/directional-emitters"}
@@ -38,6 +56,7 @@ So, we have $\frac{10000000}{0.2*50000*5}=200$. This is the average area of ocea
 To convert to a frequency, we can assume that ships are stationary and expand the width of the Sailbot to a typical length of a ship, say 100m. Traveling at 20km/h, the Sailbot then sweeps an area of 2km$^2$/h, leading to one ship encounter per 100 hours or roughly 4 days.
 
 Now, during peak season, there are about 1000 icebergs in the North Atlantic \cite{natgeo__iceberg-frequency}. This is about 50 times less than the number of ships, leading to an inverse area density of one per 10000 km$^2$, and a frequency of 1 encounter per 400 days
+
 
 \clearpage
 \newpage
