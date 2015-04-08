@@ -46,7 +46,7 @@ In order to evaluate the FLIR Lepton infrared camera, it was important to secure
 
 Figure \ref{fig:test_rig_1.0_tofino} shows Test Rig 1.0 being tested at Tofino in February. (The Test Rig interior has since been refined and restructured in version 2.0). This test included data collection in sunshine and rain, and in broad daylight, evening twilight, and early night.
 
-As well as being weather resistant and transparent to infrared, the plastic container was large enough to hold a battery pack, Raspberry Pi computer, and  the Lepton camera. Version 2.0 of the Test Rig features a waterjet cut plastic interior support structure to organize all cables and devices, and accommodate a large inertial motion unit (IMU).
+As well as providing water protection, the plastic container was large enough to hold a battery pack, Raspberry Pi computer, and  the Lepton camera. We cut a window in the container and covered it with infrared-transparent film to provide a viewport for the camera - this will be replaced with a more robust zinc selenide window in the complete obstacle detection system.  Version 2.0 of the Test Rig features a laser-cut plastic interior support structure to organize all cables and devices, and accommodate a large inertial measurement unit (IMU).  
 
 \subsubsection{\label{sec:discussion:equipment:software}Test Software}
 The Test Rig is controlled by a straightforward Python script, shown in Figure \ref{fig:test-rig-software}. The script responds to button presses, starting and stopping the recording of video from the Lepton. 60 by 80 pixel frames are grabbed from the Lepton approximately 20 times per second at 16 bit depth. These high bit depth images, which high tonal gradation resolution, are then converted to an 8-bit video stream. Version 2.0 of the Test Rig hardware includes an IMU, and this data is polled and logged for each frame captured.
@@ -57,4 +57,27 @@ As information is lost in the conversion of 16-bit source images to 8-bit video,
 \centering
 \includegraphics[width=\linewidth]{"./image/button_py"}
 \caption[Test Rig software flow]{\label{fig:test-rig-software}The flow of the Test Rig control software.}
+\end{figure}
+
+\subsubsection{\label{sec:discussion:equipment:architecture}Software Architecture and Routemaking Integration}
+
+\paragraph{\label{sec:discussion:equipment:architecture:obstacledetection}Obstacle Detection}
+
+\paragraph{\label{sec:discussion:equipment:architecture:obstaclelocation}Obstacle Location}After identifying an obstacle in an image, the next step is to determine its location in space to allow Sailbot to avoid it.  We will not attempt to estimate the distance to an obstacle, only the direction.  Figure \ref{fig:horizon-finding} shows our procedure for determining the direction of an obstacle - each obstacle's position in the image is projected onto the horizon line, giving its angle relative to Sailbot's path.
+
+This approach depends on reliable identification of the horizon line.  Waves, rain, and fog make finding the horizon from the image unreliable at best.  Instead, we will use the IMU to determine Sailbot's orientation, allowing us to infer the position of the horizon - the Test Rig 2.0 includes an IMU to support this.  We will combine angular rate integration of the gyroscope data (to respond rapidly to changes in orientation) with a moving average of the direction of gravity as measured by the accelerometer (to provide a reliable reference point to correct for drift in the gyro measurements) to determine orientation.
+
+\begin{figure}
+\includegraphics[width=100mm,natwidth=1203,natheight=627]{"./image/horizon_finding"}
+\caption[UBC Sailbot.]{\label{fig:horizon-finding}Direction of obstacles is determined by projecting them onto the horizon line}
+\end{figure}
+
+\paragraph{\label{sec:discussion:equipment:architecture:routemaking}Routemaking Integration}
+After locating obstacles in space, Sailbot needs to plot a course around them.  The UBC Sailbot team is currently developing the routemaking software that will control Sailbot's navigation.  This software assigns "hazard values" to a grid of points and plots a course that minimizes the encountered hazards, allowing the Sailbot to avoid known, fixed obstacles such as islands.  Our obstacle detection system will be integrated into this hazard map, allowing the same routemaking software to avoid detected obstacles.
+
+When an obstacle is identified in a frame, we will add to the hazard value of points in a cone centered on its estimated angle, as shown in Figure \ref{fig:routemaking}.  These hazard values will decrease over time - false detections will fade out, but real obstacles will be visible over several frames, increasing their hazard value enough to cause routemaking to steer around them.
+
+\begin{figure}
+\includegraphics[width=160mm,natwidth=1203,natheight=627]{"./image/routemaking"}
+\caption[UBC Sailbot.]{\label{fig:routemaking}Routemaking}
 \end{figure}
