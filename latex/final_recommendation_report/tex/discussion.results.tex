@@ -134,4 +134,13 @@ The second round of on-water testing took place on Wednesday, April 1 in North V
 
 \subsubsection{\label{sec:discussion:results:realtimeDetection}Realtime Obstacle Detection}
 
+Our two rounds of testing produced a wealth of data to feed into our obstacle detection system. After the Ucluelet round of testing, our project ran in two parallel veins; one to improve the hardware and produce Test Rig 2.0, and one to pipeline and produce a working version of obstacle detection software. The detection software currently evaluates the video frame by frame (i.e without any optical flow algorithms) by segmenting the image to discard inappropriate regions (e.g the sky), then finding lines and contours, then identifying regions of high contour density to locate an object. When tested with the Lepton images, the software in it's current form can identify objects at a maximum range of 100 meters.  Figure \ref{fig:buoy_iden} shows the software identifying a buoy at approximately 50 meters, and outlining the area where it locates that object in a white bounding box.
 
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth]{"./image/obstacle-detection"}
+\caption{Identifying a buoy at 50 meters}
+\label{fig:buoy_iden}
+\end{figure}
+
+The identification software currently runs in real-time (between 20-27 frames per second, depending on the information in the picture and responsiveness of the Lepton) while gathering but not using the data from the IMU. None of the boats in our database could not be picked up by the current detection software, but in all our testing we never approached another boat close enough to become a collision hazard (in order to comply with maritime law, as well as respecting the space of other vessel who couldn't know our testing purpose). Based on the success when identifying buoys, we have confidence that the system could identify a boat in its current state, should it approach closely. Further, we had a very low false positive rate when masking off above the horizon (a process which should be automated by the IMU in our ongoing work with Sailbot, slated to end late April).
